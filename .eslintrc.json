@@ -1,0 +1,29 @@
+{
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jasmine": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "local"
+            }
+        ],
+        "no-console": "off",
+        "no-compare-neg-zero": "off",
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
