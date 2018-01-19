@@ -4,6 +4,7 @@
   "description": "Tic-tac-toe game, created in use javascript",
   "main": "index.js",
   "dependencies": {
+    "eslint": "^4.15.0",
     "npm": "^5.6.0"
   },
   "devDependencies": {},
