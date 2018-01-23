@@ -1,0 +1,22 @@
+{
+  "name": "tictactoegame",
+  "version": "1.0.0",
+  "description": "Tic-tac-toe game, created in javascript",
+  "main": "src/index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "htmlhint": "^0.9.13",
+    "stylelint": "^8.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgnieszkaKurek/TicTacToeGame.git"
+  },
+  "author": "Agnieszka Kurek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgnieszkaKurek/TicTacToeGame/issues"
+  },
+  "homepage": "https://github.com/AgnieszkaKurek/TicTacToeGame#readme"
+}
