@@ -1,6 +1,8 @@
 body{
     margin-top: 40px;
-    background: #99CCCC;
+    background: linear-gradient(#99CCCC,#ffff66);
+    
+   
     color: #fff;
     font-family: Helvetica;
     font-weight: bold;
