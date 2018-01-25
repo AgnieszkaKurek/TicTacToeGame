@@ -1,20 +1,19 @@
-body{
+body {
     margin-top: 40px;
-    background: linear-gradient(#99CCCC,#9966ff);
-    
-   
+    background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
     font-family: Helvetica;
     font-weight: bold;
-    text-align:center;
+    text-align: center;
 }
+
 h1 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #f1f1f1;
 }
 
-h2{
+h2 {
     color: #9999ff;
 }
 
@@ -22,6 +21,7 @@ h2{
     margin: 0 auto;
     width: 400px;
 }
+
 #gameBord {
     width: 300px;
     height: 300px;
@@ -31,11 +31,11 @@ h2{
     margin-bottom: 20px;
 }
 
-#gameBord > li {
+#gameBord>li {
     list-style: none;
     float: left;
     overflow: hidden;
-    text-decoration:none;
+    text-decoration: none;
     width: 100px;
     height: 100px;
     background: #f1f1f1;
@@ -49,7 +49,7 @@ h2{
     box-sizing: border-box;
 }
 
-#gameBord > li:hover {
+#gameBord>li:hover {
     background: #fff;
 }
 
