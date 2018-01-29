@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Tic-tac-toe game, created in javascript",
   "main": "src/index.html",
+  "scripts": {
+    "test": "karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js --single-run"
+  },
   "dependencies": {},
   "devDependencies": {
     "eslint": "^4.15.0",
