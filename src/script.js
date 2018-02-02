@@ -7,8 +7,7 @@ function handleMove(position) {
 }
 
 const boxes = document.getElementsByClassName("box");
-Array.from(boxes).forEach(element => {
-  const position = element.getAttribute("data-position");
-  element.addEventListener("click", () => handleMove(position));
-});
-
+for (const box of boxes) {
+  const position = box.getAttribute("data-position");
+  box.addEventListener("click", () => handleMove(position));
+}
