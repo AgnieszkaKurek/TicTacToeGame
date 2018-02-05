@@ -1,6 +1,4 @@
-import {
-    TicTacToeGame
-} from '../src/ticTacToeGame.js';
+/*global TicTacToeGame*/
 
 describe('TicTacToeGame', () => {
     it('contains a board', () => {

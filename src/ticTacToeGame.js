@@ -1,4 +1,4 @@
-export class TicTacToeGame {
+class TicTacToeGame {// eslint-disable-line no-unused-vars
     constructor() {
         this.board = new Array(9);
         this.x = 'x';

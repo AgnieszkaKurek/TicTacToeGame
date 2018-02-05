@@ -31,7 +31,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-#gameBord>li {
+.box {
     list-style: none;
     float: left;
     overflow: hidden;
@@ -49,7 +49,7 @@ h2 {
     box-sizing: border-box;
 }
 
-#gameBord>li:hover {
+.box:hover {
     background: #fff;
 }
 

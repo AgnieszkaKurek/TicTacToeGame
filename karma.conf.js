@@ -3,16 +3,9 @@ module.exports = function (config) {
       basePath: '',
       frameworks: ['jasmine'],
       files: [
-        {pattern: './tests/**/*.js', watched: true},
+        'src/ticTacToeGame.js',
+        'tests/ticTacToeGameSpec.js',
       ],
-      preprocessors: {
-        './tests/**/*.js': ['webpack']
-      },
-      webpack: {
-      },
-      webpackMiddleware: {
-        stats: 'errors-only'
-      },
       client: {
         clearContext: false
       },
