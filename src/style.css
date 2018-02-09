@@ -1,5 +1,6 @@
 body {
-    margin-top: 40px;
+    margin-top: 10px;
+    height: 900px;
     background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
     font-family: Helvetica;
@@ -18,13 +19,15 @@ h2 {
 }
 
 .container {
-    height: 1000px;
-    margin: 10px;
+    position: relative;
+    top: 10px;
+    bottom: 200px;
 }
 
 #gameBord {
-    width: 300px;
-    height: 300px;
+    position: relative;
+    width: 450px;
+    height: 450px;
     border: 1px solid #dadada;
     margin: 0 auto;
     padding: 0;
@@ -36,8 +39,8 @@ h2 {
     float: left;
     overflow: hidden;
     text-decoration: none;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background: #f1f1f1;
     border: 1px solid #ccc;
     border-right: 1px solid #fff;
@@ -76,11 +79,80 @@ h2 {
 .left {
     float: left;
     margin-left: 60px;
-    text-align: center;
 }
 
 .right {
-    text-align: center;
     float: right;
     margin-right: 60px;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #gameBord {
+        height: 300px;
+        width: 300px;
+    }
+    .box {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    .player {
+        font-size: 12px;
+    }
+    #gameBord {
+        height: 300px;
+        width: 300px;
+    }
+    .box {
+        height: 100px;
+        width: 100px;
+    }
+    .left {
+        margin: 0px;
+        float: none;
+        text-align: center;
+    }
+    .right {
+        margin: 0px;
+        float: none;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: small;
+    }
+    h2 {
+        font-size: smaller;
+    }
+    #gameBord {
+        height: 150px;
+        width: 150px;
+    }
+    .box {
+        height: 50px;
+        width: 50px;
+    }
+    .left {
+        margin: 0px;
+        float: none;
+        text-align: center;
+    }
+    .right {
+        margin: 0px;
+        float: none;
+        text-align: center;
+    }
+    .player {
+        font-size: x-small;
+    }
 }
