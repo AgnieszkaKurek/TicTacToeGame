@@ -9,36 +9,38 @@
 
 <body>
     <div class="container">
-        <aside class="left">
+        <h1>Tic Tac Toe</h1>
+        <div class="gameArea">
+            <ul id="gameBord">
+                <!-- first row -->
+                <li class="box" data-position="0"></li>
+                <li class="box" data-position="1"></li>
+                <li class="box" data-position="2"></li>
+                <!-- second row -->
+                <li class="box" data-position="3"></li>
+                <li class="box" data-position="4"></li>
+                <li class="box" data-position="5"></li>
+                <!-- third row -->
+                <li class="box" data-position="6"></li>
+                <li class="box" data-position="7"></li>
+                <li class="box" data-position="8"></li>
+            </ul>
+            <button id="reset-game">Reset Game</button>
+        </div>
+        <div class="left">
             <h2>Who's Turn</h2>
             <div class="player">
                 <span>Player 1</span>
                 <span>Player 2</span>
             </div>
-        </aside>
-        <aside class="right">
+        </div>
+
+        <div class="right">
             <h2>Punctation</h2>
             <div class="player">
                 <span>Player 1:</span>
                 <span>Player 2:</span>
             </div>
-        </aside>
-            <h1>Tic Tac Toe</h1>
-                <ul id="gameBord">
-                    <!-- first row -->
-                    <li class="box" data-position="0"></li>
-                    <li class="box" data-position="1"></li>
-                    <li class="box" data-position="2"></li>
-                    <!-- second row -->
-                    <li class="box" data-position="3"></li>
-                    <li class="box" data-position="4"></li>
-                    <li class="box" data-position="5"></li>
-                    <!-- third row -->
-                    <li class="box" data-position="6"></li>
-                    <li class="box" data-position="7"></li>
-                    <li class="box" data-position="8"></li>
-                </ul>
-            <button id="reset-game">Reset Game</button>
         </div>
     </div>
     <script src="ticTacToeGame.js"></script>

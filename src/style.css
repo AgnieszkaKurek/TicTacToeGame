@@ -21,7 +21,14 @@ h2 {
 .container {
     position: relative;
     top: 10px;
-    bottom: 200px;
+    padding: 0 250px;
+}
+
+.gameArea {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%
 }
 
 #gameBord {
@@ -77,13 +84,19 @@ h2 {
 }
 
 .left {
+    position: relative;
     float: left;
-    margin-left: 60px;
+    width: 230px;
+    right: 250px;
+    margin-left: -100%;
+    padding: 0 10px
 }
 
 .right {
-    float: right;
-    margin-right: 60px;
+    float: left;
+    width: 230px;
+    margin-right: -250px;
+    padding: 0 10px
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -98,11 +111,19 @@ h2 {
 }
 
 @media (max-width: 767px) {
+    .container {
+        position: static;
+        padding: 0px;
+    }
     h1 {
         font-size: 16px;
     }
     h2 {
         font-size: 14px;
+    }
+    .gameArea {
+        position: static;
+        float: none;
     }
     .player {
         font-size: 12px;
@@ -116,23 +137,33 @@ h2 {
         width: 100px;
     }
     .left {
-        margin: 0px;
+        position: static;
+        margin: auto;
         float: none;
         text-align: center;
     }
     .right {
-        margin: 0px;
+        position: static;
+        margin: auto;
         float: none;
         text-align: center;
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        position: static;
+        padding: 0px;
+    }
     h1 {
         font-size: small;
     }
     h2 {
         font-size: smaller;
+    }
+    .gameArea {
+        position: static;
+        float: none;
     }
     #gameBord {
         height: 150px;
@@ -143,12 +174,14 @@ h2 {
         width: 50px;
     }
     .left {
-        margin: 0px;
+        position: static;
+        margin: auto;
         float: none;
         text-align: center;
     }
     .right {
-        margin: 0px;
+        position: static;
+        margin: auto;
         float: none;
         text-align: center;
     }
