@@ -1,5 +1,5 @@
 body {
-    margin-top: 10px;
+    margin-top: 40px;
     height: 900px;
     background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
@@ -151,6 +151,9 @@ h2 {
 }
 
 @media (max-width: 480px) {
+    body{
+        height: 600px;
+    }
     .container {
         position: static;
         padding: 0px;
