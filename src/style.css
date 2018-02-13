@@ -1,5 +1,6 @@
 body {
     margin-top: 40px;
+    height: 900px;
     background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
     font-family: Helvetica;
@@ -10,25 +11,34 @@ body {
 h1 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #f1f1f1;
+    color: #9966CC;
 }
 
 h2 {
-    color: #9999ff;
+    color: #9977ff;
 }
 
 .container {
-    margin: 0 auto;
-    width: 400px;
+    position: relative;
+    top: 10px;
+    padding: 0 250px;
+}
+
+.gameArea {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%
 }
 
 #gameBord {
-    width: 300px;
-    height: 300px;
+    position: relative;
+    width: 450px;
+    height: 450px;
     border: 1px solid #dadada;
     margin: 0 auto;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .box {
@@ -36,8 +46,8 @@ h2 {
     float: left;
     overflow: hidden;
     text-decoration: none;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background: #f1f1f1;
     border: 1px solid #ccc;
     border-right: 1px solid #fff;
@@ -65,9 +75,120 @@ h2 {
     cursor: pointer;
     display: inline-block;
     margin: 3px 2px;
+    margin-top: 20px;
     border-radius: 2px;
 }
 
 #reset-game:hover {
     background: #2c3e52;
+}
+
+.left {
+    position: relative;
+    float: left;
+    width: 230px;
+    right: 250px;
+    margin-left: -100%;
+    padding: 0 10px
+}
+
+.right {
+    float: left;
+    width: 230px;
+    margin-right: -250px;
+    padding: 0 10px
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    #gameBord {
+        height: 300px;
+        width: 300px;
+    }
+    .box {
+        height: 100px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        position: static;
+        padding: 0px;
+    }
+    h1 {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+    .gameArea {
+        position: static;
+        float: none;
+    }
+    .player {
+        font-size: 12px;
+    }
+    #gameBord {
+        height: 300px;
+        width: 300px;
+    }
+    .box {
+        height: 100px;
+        width: 100px;
+    }
+    .left {
+        position: static;
+        margin: auto;
+        float: none;
+        text-align: center;
+    }
+    .right {
+        position: static;
+        margin: auto;
+        float: none;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body{
+        height: 600px;
+    }
+    .container {
+        position: static;
+        padding: 0px;
+    }
+    h1 {
+        font-size: small;
+    }
+    h2 {
+        font-size: smaller;
+    }
+    .gameArea {
+        position: static;
+        float: none;
+    }
+    #gameBord {
+        height: 150px;
+        width: 150px;
+    }
+    .box {
+        height: 50px;
+        width: 50px;
+    }
+    .left {
+        position: static;
+        margin: auto;
+        float: none;
+        text-align: center;
+    }
+    .right {
+        position: static;
+        margin: auto;
+        float: none;
+        text-align: center;
+    }
+    .player {
+        font-size: x-small;
+    }
 }
