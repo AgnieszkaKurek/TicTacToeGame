@@ -2,7 +2,7 @@
 
 const game = new TicTacToeGame();
 
-function drawX(ctx){
+function drawX(ctx) {
   ctx.beginPath();
   ctx.moveTo(25, 25);
   ctx.lineTo(105, 105);
@@ -13,7 +13,7 @@ function drawX(ctx){
   ctx.stroke();
 }
 
-function drawO(ctx){
+function drawO(ctx) {
   ctx.arc(65, 50, 45, 0, 2 * Math.PI);
   ctx.lineWidth = 8;
   ctx.strokeStyle = '#ff3399';

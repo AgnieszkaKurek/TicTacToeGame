@@ -41,7 +41,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-#gameBord canvas{
+#gameBord canvas {
     width: 300px;
     height: 150px;
 }
@@ -105,7 +105,7 @@ h2 {
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
-    #gameBord canvas{
+    #gameBord canvas {
         width: 200px;
         height: 100px;
     }
@@ -157,14 +157,14 @@ h2 {
         float: none;
         text-align: center;
     }
-    #gameBord canvas{
+    #gameBord canvas {
         width: 200px;
         height: 100px;
     }
 }
 
 @media (max-width: 480px) {
-    body{
+    body {
         height: 600px;
     }
     .container {
@@ -185,7 +185,7 @@ h2 {
         height: 150px;
         width: 150px;
     }
-    #gameBord canvas{
+    #gameBord canvas {
         width: 120px;
         height: 30px;
     }
