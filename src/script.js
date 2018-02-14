@@ -2,12 +2,15 @@
 
 const game = new TicTacToeGame();
 
-function handleMove(position) {
+function handleMove(box) {
+const canvas = box.childNodes[0];
+console.log(canvas);
+const position = box.getAttribute("data-position");
   console.log(position);
 }
 
 const boxes = document.getElementsByClassName("box");
 for (const box of boxes) {
-  const position = box.getAttribute("data-position");
-  box.addEventListener("click", () => handleMove(position));
+
+  box.addEventListener("click", () => handleMove(box));
 }
