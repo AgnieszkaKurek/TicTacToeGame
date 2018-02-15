@@ -4,18 +4,18 @@ const game = new TicTacToeGame();
 
 function drawX(ctx) {
   ctx.beginPath();
-  ctx.moveTo(25, 25);
-  ctx.lineTo(105, 105);
-  ctx.moveTo(25, 105);
-  ctx.lineTo(105, 25);
+  ctx.moveTo(20, 20);
+  ctx.lineTo(250, 140);
+  ctx.moveTo(20, 140);
+  ctx.lineTo(250, 20);
   ctx.strokeStyle = '#388e3c';
-  ctx.lineWidth = 8;
+  ctx.lineWidth = 10;
   ctx.stroke();
 }
 
 function drawO(ctx) {
-  ctx.arc(65, 50, 45, 0, 2 * Math.PI);
-  ctx.lineWidth = 8;
+  ctx.arc(150, 80, 60, 0, 2 * Math.PI);
+  ctx.lineWidth = 10;
   ctx.strokeStyle = '#ff3399';
   ctx.stroke();
 }
