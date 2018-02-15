@@ -31,6 +31,5 @@ function handleMove(box) {
 
 const boxes = document.getElementsByClassName("box");
 for (const box of boxes) {
-
   box.addEventListener("click", () => handleMove(box));
 }
