@@ -4,7 +4,7 @@ const game = new TicTacToeGame();
 
 function drawX(ctx) {
   ctx.beginPath();
-  ctx.moveTo(20, 20);
+  ctx.moveTo(10, 10);
   ctx.lineTo(250, 140);
   ctx.moveTo(20, 140);
   ctx.lineTo(250, 20);
