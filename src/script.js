@@ -4,10 +4,10 @@ const game = new TicTacToeGame();
 
 function drawX(ctx) {
   ctx.beginPath();
-  ctx.moveTo(10, 10);
-  ctx.lineTo(250, 140);
-  ctx.moveTo(20, 140);
-  ctx.lineTo(250, 20);
+  ctx.moveTo(5, 5);
+  ctx.lineTo(285, 145);
+  ctx.moveTo(5, 145);
+  ctx.lineTo(285, 5);
   ctx.strokeStyle = '#388e3c';
   ctx.lineWidth = 10;
   ctx.stroke();
