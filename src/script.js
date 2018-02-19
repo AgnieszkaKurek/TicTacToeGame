@@ -1,21 +1,23 @@
 /*global TicTacToeGame*/
 
 const game = new TicTacToeGame();
+const canvasInitialSize = 150;
+const lineWithdth = 10;
 
 function drawX(ctx) {
   ctx.beginPath();
   ctx.moveTo(0, 0);
-  ctx.lineTo(150, 150);
-  ctx.moveTo(0, 150);
-  ctx.lineTo(150, 0);
+  ctx.lineTo(canvasInitialSize, canvasInitialSize);
+  ctx.moveTo(0, canvasInitialSize);
+  ctx.lineTo(canvasInitialSize, 0);
   ctx.strokeStyle = '#388e3c';
-  ctx.lineWidth = 10;
+  ctx.lineWidth = lineWithdth;
   ctx.stroke();
 }
 
 function drawO(ctx) {
-  ctx.arc(75, 75, 55, 0, 2 * Math.PI, false);
-  ctx.lineWidth = 10;
+  ctx.arc(canvasInitialSize/2, canvasInitialSize/2, canvasInitialSize/2 - 2 * lineWithdth, 0, 2 * Math.PI, false);
+  ctx.lineWidth = lineWithdth;
   ctx.strokeStyle = '#ff3399';
   ctx.stroke();
 }
