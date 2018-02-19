@@ -3,14 +3,11 @@ body {
     height: 900px;
     background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
-    font-family: Helvetica;
     font-weight: bold;
     text-align: center;
 }
 
 h1 {
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     color: #9966CC;
 }
 
@@ -27,7 +24,6 @@ h2 {
 .gameArea {
     position: relative;
     float: left;
-    overflow: hidden;
     width: 100%
 }
 
@@ -42,27 +38,19 @@ h2 {
 }
 
 #gameBord canvas {
-    position: relative;
-    top: -20px;
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
 }
 
 .box {
     list-style: none;
     float: left;
-    overflow: hidden;
-    text-decoration: none;
     width: 150px;
     height: 150px;
     background: #f1f1f1;
     border: 1px solid #ccc;
-    border-right: 1px solid #fff;
     cursor: pointer;
-    text-transform: uppercase;
-    text-align: center;
-    padding-top: 20px;
     box-sizing: border-box;
 }
 
@@ -76,14 +64,9 @@ h2 {
     padding: 0.6em 1.2em;
     background: #ed4e6e;
     color: #fff;
-    font-size: 1em;
     letter-spacing: 1px;
-    text-transform: uppercase;
     cursor: pointer;
-    display: inline-block;
-    margin: 3px 2px;
     margin-top: 20px;
-    border-radius: 2px;
 }
 
 #reset-game:hover {
@@ -96,14 +79,14 @@ h2 {
     width: 230px;
     right: 250px;
     margin-left: -100%;
-    padding: 0 10px
+    padding: 0 10px;
 }
 
 .right {
     float: left;
     width: 230px;
     margin-right: -250px;
-    padding: 0 10px
+    padding: 0 10px;
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
@@ -114,10 +97,6 @@ h2 {
     .box {
         height: 100px;
         width: 100px;
-    }
-    #gameBord canvas {
-        width: 100px;
-        height: 100px;
     }
 }
 
@@ -147,10 +126,6 @@ h2 {
         height: 100px;
         width: 100px;
     }
-    #gameBord canvas {
-        width: 100px;
-        height: 100px;
-    }
     .left {
         position: static;
         margin: auto;
@@ -169,19 +144,11 @@ h2 {
     body {
         height: 600px;
     }
-    .container {
-        position: static;
-        padding: 0px;
-    }
     h1 {
         font-size: small;
     }
     h2 {
         font-size: smaller;
-    }
-    .gameArea {
-        position: static;
-        float: none;
     }
     #gameBord {
         height: 150px;
@@ -190,22 +157,6 @@ h2 {
     .box {
         height: 50px;
         width: 50px;
-    }
-    #gameBord canvas {
-        width: 50px;
-        height: 50px;
-    }
-    .left {
-        position: static;
-        margin: auto;
-        float: none;
-        text-align: center;
-    }
-    .right {
-        position: static;
-        margin: auto;
-        float: none;
-        text-align: center;
     }
     .player {
         font-size: x-small;
