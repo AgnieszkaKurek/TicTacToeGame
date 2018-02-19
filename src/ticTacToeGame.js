@@ -1,3 +1,11 @@
+const TickTackToGameStatus = {
+    STATUS_X_WINS: Symbol("x"),
+    STATUS_O_WINS: Symbol("o"),
+    STATUS_UNFINISHED: Symbol("UNFINISHED"),
+    STATUS_DRAW: Symbol("DRAW")
+};
+Object.freeze(TickTackToGameStatus);
+
 class TicTacToeGame {// eslint-disable-line no-unused-vars
     constructor() {
         this.board = new Array(9);
@@ -28,11 +36,11 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
         ];
         for (const combination of possibleWinningCombinations) {
             if (this._isWinningCombination(...combination)){
-                return this.board[combination[0]];
+                return this.board[combination[0]] === this._x ? TickTackToGameStatus.STATUS_X_WINS : TickTackToGameStatus.STATUS_O_WINS;
             }
         }
-        if (this.board.includes(undefined)) return 'UNFINISHED';
-        return 'DRAW';
+        if (this.board.includes(undefined)) return TickTackToGameStatus.STATUS_UNFINISHED;
+        return TickTackToGameStatus.STATUS_DRAW;
     }
 
     _isWinningCombination(i1, i2, i3) {

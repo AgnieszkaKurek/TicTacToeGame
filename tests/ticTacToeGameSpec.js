@@ -1,3 +1,4 @@
+/*global TickTackToGameStatus*/
 /*global TicTacToeGame*/
 
 describe('TicTacToeGame', () => {
@@ -40,7 +41,7 @@ describe('TicTacToeGame', () => {
         expect(game.next).toEqual('x');
         expect(wasSuccessfull).toEqual(false);
     });
-    it('if x occurs in all cells of one line, x win', () => {
+    it('if x occurs in all cells of one line, x wins', () => {
         const game = new TicTacToeGame();
         game.move(0); //x
         game.move(3); //o
@@ -48,9 +49,9 @@ describe('TicTacToeGame', () => {
         game.move(4); //o
         game.move(2); //x
         expect(game.board).toEqual(['x', 'x', 'x', 'o', 'o', undefined, undefined, undefined, undefined]);
-        expect(game.status()).toEqual('x');
+        expect(game.status()).toEqual(TickTackToGameStatus.STATUS_X_WINS);
     });
-    it('if o occurs in all cells of one line, o win', () => {
+    it('if o occurs in all cells of one line, o wins', () => {
         const game = new TicTacToeGame();
         game.move(1); //x
         game.move(2); //o
@@ -59,7 +60,7 @@ describe('TicTacToeGame', () => {
         game.move(7); //x
         game.move(6); //o
         expect(game.board).toEqual([undefined, 'x', 'o', undefined, 'o', 'x', 'o', 'x', undefined]);
-        expect(game.status()).toEqual('o');
+        expect(game.status()).toEqual(TickTackToGameStatus.STATUS_O_WINS);
     });
 
     it('if neither x nor o occupy cells in one line and empty spaces left, game is unfinished', () => {
@@ -73,10 +74,10 @@ describe('TicTacToeGame', () => {
         game.move(6); //x
         game.move(7); //o
         expect(game.board).toEqual(['x', 'x', 'o', 'o', 'o', 'x', 'x', 'o', undefined]);
-        expect(game.status()).toEqual('UNFINISHED');
+        expect(game.status()).toEqual(TickTackToGameStatus.STATUS_UNFINISHED);
     });
 
- it('if neither x nor o occupy cells in one line and any spaces left, game is draw', () => {
+ it('if neither x nor o occupy cells in one line and any spaces left, game is a draw', () => {
         const game = new TicTacToeGame();
         game.move(0); //x
         game.move(2); //o
@@ -88,7 +89,7 @@ describe('TicTacToeGame', () => {
         game.move(7); //o
         game.move(8); //x
         expect(game.board).toEqual(['x', 'x', 'o', 'o', 'o', 'x', 'x', 'o', 'x']);
-        expect(game.status()).toEqual('DRAW');
+        expect(game.status()).toEqual(TickTackToGameStatus.STATUS_DRAW);
     });
 });
 
