@@ -40,7 +40,7 @@ describe('TicTacToeGame', () => {
         expect(game.next).toEqual('x');
         expect(wasSuccessfull).toEqual(false);
     });
-    it('if x occurs cells in one line, x win', () => {
+    it('if x occurs in all cells of one line, x win', () => {
         const game = new TicTacToeGame();
         game.move(0); //x
         game.move(3); //o
@@ -50,7 +50,7 @@ describe('TicTacToeGame', () => {
         expect(game.board).toEqual(['x', 'x', 'x', 'o', 'o', undefined, undefined, undefined, undefined]);
         expect(game.status()).toEqual('x');
     });
-    it('if o occurs cells in one line, o win', () => {
+    it('if o occurs in all cells of one line, o win', () => {
         const game = new TicTacToeGame();
         game.move(1); //x
         game.move(2); //o

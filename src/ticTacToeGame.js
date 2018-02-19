@@ -16,15 +16,21 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
     }
 
     status() {
-        if (this._isWinningCombination(0, 1, 2)) return this.board[0];
-        if (this._isWinningCombination(3, 4, 5)) return this.board[3];
-        if (this._isWinningCombination(6, 7, 8)) return this.board[6];
-        if (this._isWinningCombination(0, 3, 6)) return this.board[0];
-        if (this._isWinningCombination(1, 4, 7)) return this.board[1];
-        if (this._isWinningCombination(2, 5, 8)) return this.board[2];
-        if (this._isWinningCombination(0, 4, 8)) return this.board[0];
-        if (this._isWinningCombination(2, 4, 6)) return this.board[2];
-        if (this._isWinningCombination(2, 4, 6)) return this.board[2];
+        const possibleWinningCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+        for (const combination of possibleWinningCombinations) {
+            if (this._isWinningCombination(...combination)){
+                return this.board[combination[0]];
+            }
+        }
         if (this.board.includes(undefined)) return 'UNFINISHED';
         return 'DRAW';
     }
