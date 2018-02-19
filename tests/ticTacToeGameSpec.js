@@ -1,5 +1,7 @@
 /*global TickTackToGameStatus*/
+/*global TickTackToGamePlayers*/
 /*global TicTacToeGame*/
+
 
 describe('TicTacToeGame', () => {
     it('contains a board', () => {
@@ -14,14 +16,14 @@ describe('TicTacToeGame', () => {
 
     it('x should start the game', () => {
         const game = new TicTacToeGame();
-        expect(game.next).toEqual('x');
+        expect(game.next).toEqual(TickTackToGamePlayers.X);
     });
 
     it('first move should set x in appropriate position and change player to o', () => {
         const game = new TicTacToeGame();
         const wasSuccessfull = game.move(0);
-        expect(game.board).toEqual(['x', undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual('o');
+        expect(game.board).toEqual([TickTackToGamePlayers.X, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(game.next).toEqual(TickTackToGamePlayers.O);
         expect(wasSuccessfull).toEqual(true);
     });
 
@@ -29,16 +31,16 @@ describe('TicTacToeGame', () => {
         const game = new TicTacToeGame();
         game.move(0); //x
         game.move(2); //o
-        expect(game.board).toEqual(['x', undefined, 'o', undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual('x');
+        expect(game.board).toEqual([TickTackToGamePlayers.X, undefined, TickTackToGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(game.next).toEqual(TickTackToGamePlayers.X);
     });
     it('if the next move is carried out in the occupied position, board and next move doesn,t changes', () => {
         const game = new TicTacToeGame();
         game.move(0); //x
         game.move(2); //o
         const wasSuccessfull = game.move(2); //x
-        expect(game.board).toEqual(['x', undefined, 'o', undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual('x');
+        expect(game.board).toEqual([TickTackToGamePlayers.X, undefined, TickTackToGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(game.next).toEqual(TickTackToGamePlayers.X);
         expect(wasSuccessfull).toEqual(false);
     });
     it('if x occurs in all cells of one line, x wins', () => {
@@ -48,7 +50,7 @@ describe('TicTacToeGame', () => {
         game.move(1); //x
         game.move(4); //o
         game.move(2); //x
-        expect(game.board).toEqual(['x', 'x', 'x', 'o', 'o', undefined, undefined, undefined, undefined]);
+        expect(game.board).toEqual([TickTackToGamePlayers.X, TickTackToGamePlayers.X, TickTackToGamePlayers.X, TickTackToGamePlayers.O, TickTackToGamePlayers.O, undefined, undefined, undefined, undefined]);
         expect(game.status()).toEqual(TickTackToGameStatus.STATUS_X_WINS);
     });
     it('if o occurs in all cells of one line, o wins', () => {
@@ -59,7 +61,7 @@ describe('TicTacToeGame', () => {
         game.move(4); //o
         game.move(7); //x
         game.move(6); //o
-        expect(game.board).toEqual([undefined, 'x', 'o', undefined, 'o', 'x', 'o', 'x', undefined]);
+        expect(game.board).toEqual([undefined, TickTackToGamePlayers.X, TickTackToGamePlayers.O, undefined, TickTackToGamePlayers.O, TickTackToGamePlayers.X, TickTackToGamePlayers.O, TickTackToGamePlayers.X, undefined]);
         expect(game.status()).toEqual(TickTackToGameStatus.STATUS_O_WINS);
     });
 
@@ -73,7 +75,7 @@ describe('TicTacToeGame', () => {
         game.move(4); //o
         game.move(6); //x
         game.move(7); //o
-        expect(game.board).toEqual(['x', 'x', 'o', 'o', 'o', 'x', 'x', 'o', undefined]);
+        expect(game.board).toEqual([TickTackToGamePlayers.X, TickTackToGamePlayers.X, TickTackToGamePlayers.O, TickTackToGamePlayers.O, TickTackToGamePlayers.O, TickTackToGamePlayers.X, TickTackToGamePlayers.X, TickTackToGamePlayers.O, undefined]);
         expect(game.status()).toEqual(TickTackToGameStatus.STATUS_UNFINISHED);
     });
 
@@ -88,7 +90,7 @@ describe('TicTacToeGame', () => {
         game.move(6); //x
         game.move(7); //o
         game.move(8); //x
-        expect(game.board).toEqual(['x', 'x', 'o', 'o', 'o', 'x', 'x', 'o', 'x']);
+        expect(game.board).toEqual([TickTackToGamePlayers.X, TickTackToGamePlayers.X, TickTackToGamePlayers.O, TickTackToGamePlayers.O, TickTackToGamePlayers.O, TickTackToGamePlayers.X, TickTackToGamePlayers.X, TickTackToGamePlayers.O, TickTackToGamePlayers.X]);
         expect(game.status()).toEqual(TickTackToGameStatus.STATUS_DRAW);
     });
 });

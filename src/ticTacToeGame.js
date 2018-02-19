@@ -6,18 +6,22 @@ const TickTackToGameStatus = {
 };
 Object.freeze(TickTackToGameStatus);
 
+const TickTackToGamePlayers = {
+    X: Symbol("x"),
+    O: Symbol("o"),
+};
+Object.freeze(TickTackToGamePlayers);
+
 class TicTacToeGame {// eslint-disable-line no-unused-vars
     constructor() {
         this.board = new Array(9);
-        this._x = 'x';
-        this._o = 'o';
-        this.next = this._x;
+        this.next = TickTackToGamePlayers.X;
     }
 
     move(position) {
         if (this.board[position] === undefined) {
             this.board[position] = this.next;
-            this.next = this.next === this._x ? this._o : this._x;
+            this.next = this.next === TickTackToGamePlayers.X ? TickTackToGamePlayers.O : TickTackToGamePlayers.X;
             return true;
         }
         return false;
@@ -36,7 +40,7 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
         ];
         for (const combination of possibleWinningCombinations) {
             if (this._isWinningCombination(...combination)){
-                return this.board[combination[0]] === this._x ? TickTackToGameStatus.STATUS_X_WINS : TickTackToGameStatus.STATUS_O_WINS;
+                return this.board[combination[0]] === TickTackToGamePlayers.X ? TickTackToGameStatus.STATUS_X_WINS : TickTackToGameStatus.STATUS_O_WINS;
             }
         }
         if (this.board.includes(undefined)) return TickTackToGameStatus.STATUS_UNFINISHED;
