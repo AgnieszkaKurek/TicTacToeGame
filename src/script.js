@@ -1,3 +1,5 @@
+/*global TickTackToGameStatus/
+/*global TickTackToGamePlayers*/
 /*global TicTacToeGame*/
 
 const game = new TicTacToeGame();
@@ -17,12 +19,12 @@ function drawX(box) {
 
 function drawO(box) {
   const ctx = initDrawing(box);
-  ctx.arc(canvasInitialSize/2, canvasInitialSize/2, canvasInitialSize/2 - 2 * lineWithdth, 0, 2 * Math.PI, false);
+  ctx.arc(canvasInitialSize / 2, canvasInitialSize / 2, canvasInitialSize / 2 - 2 * lineWithdth, 0, 2 * Math.PI, false);
   ctx.strokeStyle = '#ff3399';
   ctx.stroke();
 }
 
-function initDrawing(box){
+function initDrawing(box) {
   const canvas = box.childNodes[0];
   const ctx = canvas.getContext("2d");
   ctx.lineWidth = lineWithdth;
@@ -32,6 +34,13 @@ function initDrawing(box){
 function handleMove(box) {
   const position = box.getAttribute("data-position");
   const currentPlayer = game.next;
+  if (game.move(position)) {
+    if (currentPlayer === TickTackToGamePlayers.X) {
+      drawX(box);
+    } else {
+      drawO(box);
+    }
+  }
 }
 
 const boxes = document.getElementsByClassName("box");
