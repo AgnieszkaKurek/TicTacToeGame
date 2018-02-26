@@ -1,4 +1,4 @@
-/*global TickTackToGameStatus/
+/*global TickTackToGameStatus*/
 /*global TickTackToGamePlayers*/
 /*global TicTacToeGame*/
 
