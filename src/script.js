@@ -41,6 +41,15 @@ function handleMove(box) {
       drawO(box);
     }
   }
+  const status = game.status();
+  if (status === TickTackToGameStatus.STATUS_X_WINS) {
+    document.getElementById("winnerX").style.display = 'block';
+
+  } else if (status === TickTackToGameStatus.STATUS_O_WINS) {
+    document.getElementById("winnerO").style.display = 'block';
+  } else if (status === TickTackToGameStatus.STATUS_DRAW) {
+    document.getElementById("draw").style.display = 'block';
+  }
 }
 
 const boxes = document.getElementsByClassName("box");
