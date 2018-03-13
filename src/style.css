@@ -61,11 +61,11 @@ h2 {
     text-align: center;
     border: none;
     padding: 0.6em 1.2em;
-    background: #ed4e6e;
+    background: #ff99cc;
     color: #fff;
     letter-spacing: 1px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #reset-game:hover {
@@ -87,6 +87,21 @@ h2 {
     margin-right: -250px;
     padding: 0 10px;
 }
+.invisible{
+    display: none;
+}
+.showStatus{
+    display:block;
+    width: 450px;
+    height: 50px;
+    color: #ed4e6e;
+    font-weight: bold;
+    font-size:50px;
+    margin: 0 auto;
+    padding: 0;
+    
+   
+}
 
 @media (min-width: 768px) and (max-width: 979px) {
     #gameBord {
@@ -97,6 +112,13 @@ h2 {
         height: 100px;
         width: 100px;
     }
+    .showStatus{
+        display: inline-block;
+           position: static;
+           text-align: center;
+           font-size: 30px;
+    }
+    
 }
 
 @media (max-width: 767px) {
@@ -137,6 +159,12 @@ h2 {
         float: none;
         text-align: center;
     }
+    .showStatus{
+    display: inline-block;
+       position: static;
+       text-align: center;
+       font-size: 30px;
+}
 }
 
 @media (max-width: 480px) {
@@ -159,5 +187,8 @@ h2 {
     }
     .player {
         font-size: x-small;
+    }
+    .showStatus{
+        font-size: 20px;
     }
 }

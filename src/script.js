@@ -42,14 +42,19 @@ function handleMove(box) {
     }
   }
   const status = game.status();
+ 
   if (status === TickTackToGameStatus.STATUS_X_WINS) {
-    document.getElementById("winnerX").style.display = 'block';
-
+    const element = document.getElementById("winnerX");
+    element.classList.add("showStatus");
   } else if (status === TickTackToGameStatus.STATUS_O_WINS) {
+    element = document.getElementById("winnerO");
+    element.classList.add("showStatus");
     document.getElementById("winnerO").style.display = 'block';
   } else if (status === TickTackToGameStatus.STATUS_DRAW) {
-    document.getElementById("draw").style.display = 'block';
+    element = document.getElementById("draw");
+    element.classList.add("showStatus")
   }
+
 }
 
 const boxes = document.getElementsByClassName("box");
