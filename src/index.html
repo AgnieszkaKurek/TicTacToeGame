@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <h1>Tic Tac Toe</h1>
+        
         <div class="gameArea">
             <ul id="gameBord">
                 <!-- first row -->
@@ -27,9 +28,11 @@
             </ul>
             <button id="reset-game">Reset Game</button>
         </div>
-        <span class="invisible"  id="winnerX">Winer is X</span>
-        <span class="invisible"  id="winnerO">Winer is O</span>
-        <span class="invisible"  id="draw">Is Draw</span>
+
+        <span class="status invisible"  id="winnerX">Winer is X</span>
+        <span class="status invisible"  id="winnerO">Winer is O</span>
+        <span class="status invisible"  id="draw">Draw</span>
+
         <div class="left">
             <h2>Who's Turn</h2>
             <div class="player">
@@ -46,6 +49,7 @@
         </div>
     </div>
     <script src="ticTacToeGame.js"></script>
+    <script src="ticTacToeGameRenderer.js"></script>
     <script src="script.js"></script>
 </body>
 
