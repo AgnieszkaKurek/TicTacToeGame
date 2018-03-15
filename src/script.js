@@ -49,10 +49,10 @@ function handleMove(box) {
   } else if (status === TickTackToGameStatus.STATUS_O_WINS) {
     element = document.getElementById("winnerO");
     element.classList.add("showStatus");
-    document.getElementById("winnerO").style.display = 'block';
+   // document.getElementById("winnerO").style.display = 'block';
   } else if (status === TickTackToGameStatus.STATUS_DRAW) {
     element = document.getElementById("draw");
-    element.classList.add("showStatus")
+    element.classList.add("showStatus");
   }
 
 }
