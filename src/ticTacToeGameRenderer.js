@@ -67,6 +67,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         if (affectedItemId) {
             const element = document.getElementById(affectedItemId);
             element.classList.remove("invisible");
+            element.classList.add("changeStatusDisplay");
         }
     }
 }
