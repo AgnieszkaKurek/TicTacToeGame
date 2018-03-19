@@ -1,5 +1,4 @@
 body {
-    margin-top: 40px;
     height: 900px;
     background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
@@ -17,7 +16,6 @@ h2 {
 
 .container {
     position: relative;
-    top: 10px;
     padding: 0 250px;
 }
 
@@ -62,11 +60,11 @@ h2 {
     text-align: center;
     border: none;
     padding: 0.6em 1.2em;
-    background: #ed4e6e;
+    background: #ff99cc;
     color: #fff;
     letter-spacing: 1px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 #reset-game:hover {
@@ -89,7 +87,25 @@ h2 {
     padding: 0 10px;
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
+.invisible{
+    display: none;
+}
+
+.status{
+    width: 450px;
+    height: 50px;
+    color: #ed4e6e;
+    font-weight: bold;
+    font-size:50px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.changeStatusDisplay{
+    display: block;
+}
+
+@media (min-width: 850px) and (max-width: 979px) {
     #gameBord {
         height: 300px;
         width: 300px;
@@ -98,9 +114,26 @@ h2 {
         height: 100px;
         width: 100px;
     }
+    .status {
+        width: 200px;
+        height: 25px;
+        text-align: center;
+        font-size: 25px;
+    }
+    .left {
+        width: 130px;
+        right: 150px;
+        margin-left: -100%;
+        padding: 0 10px;
+    }
+    .right {
+       width: 130px;
+       left: 150px;;
+       margin-right: -50%;
+    }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 849px) {
     .container {
         position: static;
         padding: 0px;
@@ -127,16 +160,27 @@ h2 {
         width: 100px;
     }
     .left {
+        width: 150px;
         position: static;
         margin: auto;
         float: none;
         text-align: center;
     }
     .right {
+        width: 150px;
         position: static;
         margin: auto;
         float: none;
         text-align: center;
+    }
+    .status{
+      width: 200px;
+      text-align: center; 
+      font-size: 20px;
+      margin-top: 15px;
+    }
+    .changeStatusDisplay{
+      display: inline;
     }
 }
 
@@ -160,5 +204,17 @@ h2 {
     }
     .player {
         font-size: x-small;
+    }
+    .left{
+        width: 100px;
+    }
+    .right {
+        width: 100px;
+    }
+    .status {
+        font-size: 15px;
+        width: 100px;
+        position: static;
+        margin-top: 10px;
     }
 }
