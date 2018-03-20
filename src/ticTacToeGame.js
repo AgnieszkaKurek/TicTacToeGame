@@ -39,7 +39,7 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
             [2, 4, 6],
         ];
         for (const combination of possibleWinningCombinations) {
-            if (this._isWinningCombination(...combination)){
+            if (this._isWinningCombination(...combination)) {
                 return this.board[combination[0]] === TickTackToGamePlayers.X ? TickTackToGameStatus.STATUS_X_WINS : TickTackToGameStatus.STATUS_O_WINS;
             }
         }
