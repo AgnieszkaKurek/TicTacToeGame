@@ -1,5 +1,5 @@
-/*global TicTacToGameStatus*/
-/*global TicTacToGamePlayers*/
+/*global TicTacToeGameStatus*/
+/*global TicTacToeGamePlayers*/
 /*global TicTacToeGame*/
 
 
@@ -19,28 +19,28 @@ describe('TicTacToeGame', () => {
     });
 
     it('x should start the game', () => {
-        expect(game.next).toEqual(TicTacToGamePlayers.X);
+        expect(game.next).toEqual(TicTacToeGamePlayers.X);
     });
 
     it('first move should set x in appropriate position and change player to o', () => {
         const wasSuccessfull = game.move(0);
-        expect(game.board).toEqual([TicTacToGamePlayers.X, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual(TicTacToGamePlayers.O);
+        expect(game.board).toEqual([TicTacToeGamePlayers.X, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(game.next).toEqual(TicTacToeGamePlayers.O);
         expect(wasSuccessfull).toEqual(true);
     });
 
     it('two moves should set x and o in appropriate positions and next player should be x', () => {
         game.move(0); //x
         game.move(2); //o
-        expect(game.board).toEqual([TicTacToGamePlayers.X, undefined, TicTacToGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual(TicTacToGamePlayers.X);
+        expect(game.board).toEqual([TicTacToeGamePlayers.X, undefined, TicTacToeGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(game.next).toEqual(TicTacToeGamePlayers.X);
     });
     it('if the next move is carried out in the occupied position, board and next move doesn,t changes', () => {
         game.move(0); //x
         game.move(2); //o
         const wasSuccessfull = game.move(2); //x
-        expect(game.board).toEqual([TicTacToGamePlayers.X, undefined, TicTacToGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual(TicTacToGamePlayers.X);
+        expect(game.board).toEqual([TicTacToeGamePlayers.X, undefined, TicTacToeGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
+        expect(game.next).toEqual(TicTacToeGamePlayers.X);
         expect(wasSuccessfull).toEqual(false);
     });
     it('if x occurs in all cells of one line, x wins', () => {
@@ -49,8 +49,8 @@ describe('TicTacToeGame', () => {
         game.move(1); //x
         game.move(4); //o
         game.move(2); //x
-        expect(game.board).toEqual([TicTacToGamePlayers.X, TicTacToGamePlayers.X, TicTacToGamePlayers.X, TicTacToGamePlayers.O, TicTacToGamePlayers.O, undefined, undefined, undefined, undefined]);
-        expect(game.status()).toEqual(TicTacToGameStatus.STATUS_X_WINS);
+        expect(game.board).toEqual([TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, undefined, undefined, undefined, undefined]);
+        expect(game.status()).toEqual(TicTacToeGameStatus.STATUS_X_WINS);
     });
     it('if o occurs in all cells of one line, o wins', () => {
         game.move(1); //x
@@ -59,8 +59,8 @@ describe('TicTacToeGame', () => {
         game.move(4); //o
         game.move(7); //x
         game.move(6); //o
-        expect(game.board).toEqual([undefined, TicTacToGamePlayers.X, TicTacToGamePlayers.O, undefined, TicTacToGamePlayers.O, TicTacToGamePlayers.X, TicTacToGamePlayers.O, TicTacToGamePlayers.X, undefined]);
-        expect(game.status()).toEqual(TicTacToGameStatus.STATUS_O_WINS);
+        expect(game.board).toEqual([undefined, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, undefined, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X, undefined]);
+        expect(game.status()).toEqual(TicTacToeGameStatus.STATUS_O_WINS);
     });
 
     it('if neither x nor o occupy cells in one line and empty spaces left, game is unfinished', () => {
@@ -72,8 +72,8 @@ describe('TicTacToeGame', () => {
         game.move(4); //o
         game.move(6); //x
         game.move(7); //o
-        expect(game.board).toEqual([TicTacToGamePlayers.X, TicTacToGamePlayers.X, TicTacToGamePlayers.O, TicTacToGamePlayers.O, TicTacToGamePlayers.O, TicTacToGamePlayers.X, TicTacToGamePlayers.X, TicTacToGamePlayers.O, undefined]);
-        expect(game.status()).toEqual(TicTacToGameStatus.STATUS_UNFINISHED);
+        expect(game.board).toEqual([TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, undefined]);
+        expect(game.status()).toEqual(TicTacToeGameStatus.STATUS_UNFINISHED);
     });
 
     it('if neither x nor o occupy cells in one line and any spaces left, game is a draw', () => {
@@ -86,8 +86,8 @@ describe('TicTacToeGame', () => {
         game.move(6); //x
         game.move(7); //o
         game.move(8); //x
-        expect(game.board).toEqual([TicTacToGamePlayers.X, TicTacToGamePlayers.X, TicTacToGamePlayers.O, TicTacToGamePlayers.O, TicTacToGamePlayers.O, TicTacToGamePlayers.X, TicTacToGamePlayers.X, TicTacToGamePlayers.O, TicTacToGamePlayers.X]);
-        expect(game.status()).toEqual(TicTacToGameStatus.STATUS_DRAW);
+        expect(game.board).toEqual([TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X]);
+        expect(game.status()).toEqual(TicTacToeGameStatus.STATUS_DRAW);
     });
 });
 
