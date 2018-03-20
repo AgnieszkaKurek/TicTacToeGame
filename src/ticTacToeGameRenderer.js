@@ -1,5 +1,5 @@
-/*global TickTackToGameStatus*/
-/*global TickTackToGamePlayers*/
+/*global TicTacToGameStatus*/
+/*global TicTacToGamePlayers*/
 
 class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     constructor(game) {
@@ -45,7 +45,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         const position = box.getAttribute("data-position");
         const currentPlayer = this.game.next;
         if (this.game.move(position)) {
-            if (currentPlayer === TickTackToGamePlayers.X) {
+            if (currentPlayer === TicTacToGamePlayers.X) {
                 this._drawX(box);
             } else {
                 this._drawO(box);
@@ -57,11 +57,11 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _handleStatus() {
         let affectedItemId;
         const status = this.game.status();
-        if (status === TickTackToGameStatus.STATUS_X_WINS) {
+        if (status === TicTacToGameStatus.STATUS_X_WINS) {
             affectedItemId = "winnerX";
-        } else if (status === TickTackToGameStatus.STATUS_O_WINS) {
+        } else if (status === TicTacToGameStatus.STATUS_O_WINS) {
             affectedItemId = "winnerO";
-        } else if (status === TickTackToGameStatus.STATUS_DRAW) {
+        } else if (status === TicTacToGameStatus.STATUS_DRAW) {
             affectedItemId = "draw";
         }
         if (affectedItemId) {
