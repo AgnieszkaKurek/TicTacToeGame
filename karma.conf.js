@@ -3,6 +3,8 @@ module.exports = function (config) {
       basePath: '',
       frameworks: ['jasmine'],
       files: [
+        'src/ticTacToeGameStatus.js',
+        'src/ticTacToeGamePlayers.js',
         'src/ticTacToeGame.js',
         'tests/ticTacToeGameSpec.js',
       ],

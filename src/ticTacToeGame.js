@@ -1,16 +1,5 @@
-const TicTacToeGameStatus = {
-    STATUS_X_WINS: Symbol("x"),
-    STATUS_O_WINS: Symbol("o"),
-    STATUS_UNFINISHED: Symbol("UNFINISHED"),
-    STATUS_DRAW: Symbol("DRAW")
-};
-Object.freeze(TicTacToeGameStatus);
-
-const TicTacToeGamePlayers = {
-    X: Symbol("x"),
-    O: Symbol("o"),
-};
-Object.freeze(TicTacToeGamePlayers);
+/*global TicTacToeGameStatus*/
+/*global TicTacToeGamePlayers*/
 
 class TicTacToeGame {// eslint-disable-line no-unused-vars
     constructor() {
