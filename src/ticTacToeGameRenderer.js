@@ -35,7 +35,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _initDrawing(box) {
-        const canvas = box.childNodes[0];
+        const canvas = box.children[0];
         const ctx = canvas.getContext("2d");
         ctx.lineWidth = this.lineWithdth;
         return ctx;
