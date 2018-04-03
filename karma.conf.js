@@ -4,9 +4,11 @@ module.exports = function (config) {
       frameworks: ['jasmine'],
       files: [
         'src/ticTacToeGameStatus.js',
+        'src/tictTacToeGameScore.js',
         'src/ticTacToeGamePlayers.js',
         'src/ticTacToeGame.js',
         'tests/ticTacToeGameSpec.js',
+        'tests/ticTacToeGamesScoreSpec.js',
       ],
       client: {
         clearContext: false
