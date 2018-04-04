@@ -1,8 +1,10 @@
 /*global TicTacToeGame*/
 /*global TicTacToeGameRenderer*/
+/*global TicTacToeGameScore*/
 
-(function(){
+(function () {
   const game = new TicTacToeGame();
-  const renderer = new TicTacToeGameRenderer(game);
-  renderer.appendToActions();
+  const score = new TicTacToeGameScore();
+  const renderer = new TicTacToeGameRenderer(game, score);
+  renderer.init();
 })();

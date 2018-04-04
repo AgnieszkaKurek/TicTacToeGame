@@ -1,18 +1,20 @@
-/*global TickTackToGameStatus*/
-/*global TickTackToGamePlayers*/
+/*global TicTacToeGameStatus*/
+/*global TicTacToeGamePlayers*/
 
 class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
-    constructor(game) {
+    constructor(game, score) {
         this.game = game;
+        this.score = score;
         this.canvasInitialSize = 150;
         this.lineWithdth = 10;
     }
 
-    appendToActions() {
+    init() {
         const boxes = document.getElementsByClassName("box");
         for (const box of boxes) {
             box.addEventListener("click", () => this._handleMove(box));
         }
+        this._displayScore();
     }
 
     _drawX(box) {
@@ -35,7 +37,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _initDrawing(box) {
-        const canvas = box.childNodes[0];
+        const canvas = box.children[0];
         const ctx = canvas.getContext("2d");
         ctx.lineWidth = this.lineWithdth;
         return ctx;
@@ -45,7 +47,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         const position = box.getAttribute("data-position");
         const currentPlayer = this.game.next;
         if (this.game.move(position)) {
-            if (currentPlayer === TickTackToGamePlayers.X) {
+            if (currentPlayer === TicTacToeGamePlayers.X) {
                 this._drawX(box);
             } else {
                 this._drawO(box);
@@ -57,17 +59,29 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _handleStatus() {
         let affectedItemId;
         const status = this.game.status();
-        if (status === TickTackToGameStatus.STATUS_X_WINS) {
+        this.score.update(status);
+        if (status === TicTacToeGameStatus.STATUS_X_WINS) {
             affectedItemId = "winnerX";
-        } else if (status === TickTackToGameStatus.STATUS_O_WINS) {
+        } else if (status === TicTacToeGameStatus.STATUS_O_WINS) {
             affectedItemId = "winnerO";
-        } else if (status === TickTackToGameStatus.STATUS_DRAW) {
+        } else if (status === TicTacToeGameStatus.STATUS_DRAW) {
             affectedItemId = "draw";
         }
         if (affectedItemId) {
+            this._displayScore();
             const element = document.getElementById(affectedItemId);
             element.classList.remove("invisible");
             element.classList.add("changeStatusDisplay");
         }
+    }
+
+    _displayScore(){
+        this._dispalyValueInElement("scorePlayerX", this.score.scorePlayerX);
+        this._dispalyValueInElement("scorePlayerO", this.score.scorePlayerO);
+        this._dispalyValueInElement("numberOfDraws", this.score.numberOfDraws);
+    }
+
+    _dispalyValueInElement(elementId, value){
+        document.getElementById(elementId).innerHTML = value;
     }
 }
