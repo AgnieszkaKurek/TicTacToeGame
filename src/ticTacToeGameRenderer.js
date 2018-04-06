@@ -10,11 +10,28 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     init() {
+        this._interateBoxes((box) => {
+            box.addEventListener("click", () => this._handleMove(box));
+        });
+        document.getElementById("reset-game").addEventListener("click", () => {
+            this.game.reset();
+            this._resetRenderer();
+        });
+        this._displayScore();
+    }
+
+    _interateBoxes(handler) {
         const boxes = document.getElementsByClassName("box");
         for (const box of boxes) {
-            box.addEventListener("click", () => this._handleMove(box));
+            handler(box);
         }
-        this._displayScore();
+    }
+
+    _resetRenderer() {
+        this._interateBoxes((box) => {
+            const canvas = this._getCanvasFromBox(box);
+            canvas.width = canvas.height = this.canvasInitialSize;
+        });
     }
 
     _drawX(box) {
@@ -36,8 +53,12 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         ctx.stroke();
     }
 
+    _getCanvasFromBox(box){
+        return box.children[0];
+    }
+
     _initDrawing(box) {
-        const canvas = box.children[0];
+        const canvas = this._getCanvasFromBox(box);
         const ctx = canvas.getContext("2d");
         ctx.lineWidth = this.lineWithdth;
         return ctx;
@@ -75,13 +96,13 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         }
     }
 
-    _displayScore(){
+    _displayScore() {
         this._dispalyValueInElement("scorePlayerX", this.score.scorePlayerX);
         this._dispalyValueInElement("scorePlayerO", this.score.scorePlayerO);
         this._dispalyValueInElement("numberOfDraws", this.score.numberOfDraws);
     }
 
-    _dispalyValueInElement(elementId, value){
+    _dispalyValueInElement(elementId, value) {
         document.getElementById(elementId).innerHTML = value;
     }
 }
