@@ -59,7 +59,6 @@ h2 {
 #reset-game {
     text-align: center;
     border: none;
-    padding: 0.6em 1.2em;
     background: #ff99cc;
     color: #fff;
     letter-spacing: 1px;
@@ -99,10 +98,6 @@ h2 {
     font-size:50px;
     margin: 0 auto;
     padding: 0;
-}
-
-.changeStatusDisplay{
-    display: block;
 }
 
 @media (min-width: 850px) and (max-width: 979px) {
@@ -175,12 +170,9 @@ h2 {
     }
     .status{
       width: 200px;
-      text-align: center; 
+      text-align: center;
       font-size: 20px;
       margin-top: 15px;
-    }
-    .changeStatusDisplay{
-      display: inline;
     }
 }
 

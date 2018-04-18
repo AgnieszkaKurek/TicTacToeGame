@@ -31,6 +31,9 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this._interateBoxes((box) => {
             const canvas = this._getCanvasFromBox(box);
             canvas.width = canvas.height = this.canvasInitialSize;
+            for (const statusItems of document.getElementsByClassName("status")) {
+                statusItems.classList.add("invisible");
+            }
         });
     }
 
@@ -53,7 +56,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         ctx.stroke();
     }
 
-    _getCanvasFromBox(box){
+    _getCanvasFromBox(box) {
         return box.children[0];
     }
 
@@ -65,6 +68,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _handleMove(box) {
+        if (this.game.status() !== TicTacToeGameStatus.STATUS_UNFINISHED) return;
         const position = box.getAttribute("data-position");
         const currentPlayer = this.game.next;
         if (this.game.move(position)) {
@@ -78,22 +82,20 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _handleStatus() {
-        let affectedItemId;
         const status = this.game.status();
         this.score.update(status);
-        if (status === TicTacToeGameStatus.STATUS_X_WINS) {
-            affectedItemId = "winnerX";
-        } else if (status === TicTacToeGameStatus.STATUS_O_WINS) {
-            affectedItemId = "winnerO";
-        } else if (status === TicTacToeGameStatus.STATUS_DRAW) {
-            affectedItemId = "draw";
-        }
-        if (affectedItemId) {
+        let gameEndId = status === TicTacToeGameStatus.STATUS_X_WINS ? "winnerX" :
+            status === TicTacToeGameStatus.STATUS_O_WINS ? "winnerO" :
+                status === TicTacToeGameStatus.STATUS_DRAW ? "draw" : undefined;
+        if (gameEndId) {
+            this._showElement(gameEndId);
+            this._showElement("reset-game");
             this._displayScore();
-            const element = document.getElementById(affectedItemId);
-            element.classList.remove("invisible");
-            element.classList.add("changeStatusDisplay");
         }
+    }
+
+    _showElement(id) {
+        document.getElementById(id).classList.remove("invisible");
     }
 
     _displayScore() {
