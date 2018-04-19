@@ -3,6 +3,10 @@
 
 class TicTacToeGame {// eslint-disable-line no-unused-vars
     constructor() {
+        this.reset();
+    }
+
+    reset() {
         this.board = new Array(9);
         this.next = TicTacToeGamePlayers.X;
     }

@@ -10,11 +10,31 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     init() {
+        this._interateBoxes((box) => {
+            box.addEventListener("click", () => this._handleMove(box));
+        });
+        document.getElementById("reset-game").addEventListener("click", () => {
+            this.game.reset();
+            this._resetRenderer();
+        });
+        this._displayScore();
+    }
+
+    _interateBoxes(handler) {
         const boxes = document.getElementsByClassName("box");
         for (const box of boxes) {
-            box.addEventListener("click", () => this._handleMove(box));
+            handler(box);
         }
-        this._displayScore();
+    }
+
+    _resetRenderer() {
+        this._interateBoxes((box) => {
+            const canvas = this._getCanvasFromBox(box);
+            canvas.width = canvas.height = this.canvasInitialSize;
+            for (const statusItems of document.getElementsByClassName("status")) {
+                statusItems.classList.add("invisible");
+            }
+        });
     }
 
     _drawX(box) {
@@ -36,14 +56,19 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         ctx.stroke();
     }
 
+    _getCanvasFromBox(box) {
+        return box.children[0];
+    }
+
     _initDrawing(box) {
-        const canvas = box.children[0];
+        const canvas = this._getCanvasFromBox(box);
         const ctx = canvas.getContext("2d");
         ctx.lineWidth = this.lineWithdth;
         return ctx;
     }
 
     _handleMove(box) {
+        if (this.game.status() !== TicTacToeGameStatus.STATUS_UNFINISHED) return;
         const position = box.getAttribute("data-position");
         const currentPlayer = this.game.next;
         if (this.game.move(position)) {
@@ -57,31 +82,29 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _handleStatus() {
-        let affectedItemId;
         const status = this.game.status();
         this.score.update(status);
-        if (status === TicTacToeGameStatus.STATUS_X_WINS) {
-            affectedItemId = "winnerX";
-        } else if (status === TicTacToeGameStatus.STATUS_O_WINS) {
-            affectedItemId = "winnerO";
-        } else if (status === TicTacToeGameStatus.STATUS_DRAW) {
-            affectedItemId = "draw";
-        }
-        if (affectedItemId) {
+        let gameEndId = status === TicTacToeGameStatus.STATUS_X_WINS ? "winnerX" :
+            status === TicTacToeGameStatus.STATUS_O_WINS ? "winnerO" :
+                status === TicTacToeGameStatus.STATUS_DRAW ? "draw" : undefined;
+        if (gameEndId) {
+            this._showElement(gameEndId);
+            this._showElement("reset-game");
             this._displayScore();
-            const element = document.getElementById(affectedItemId);
-            element.classList.remove("invisible");
-            element.classList.add("changeStatusDisplay");
         }
     }
 
-    _displayScore(){
+    _showElement(id) {
+        document.getElementById(id).classList.remove("invisible");
+    }
+
+    _displayScore() {
         this._dispalyValueInElement("scorePlayerX", this.score.scorePlayerX);
         this._dispalyValueInElement("scorePlayerO", this.score.scorePlayerO);
         this._dispalyValueInElement("numberOfDraws", this.score.numberOfDraws);
     }
 
-    _dispalyValueInElement(elementId, value){
+    _dispalyValueInElement(elementId, value) {
         document.getElementById(elementId).innerHTML = value;
     }
 }
