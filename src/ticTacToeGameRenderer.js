@@ -17,6 +17,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
             this.game.reset();
             this._resetRenderer();
         });
+        this._showElement(this.game.nextPlayer === TicTacToeGamePlayers.X ? "playerX" : "playerO");
         this._displayScore();
     }
 
@@ -28,6 +29,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _resetRenderer() {
+        this._showElement("playerInfo");
         this._interateBoxes((box) => {
             const canvas = this._getCanvasFromBox(box);
             canvas.width = canvas.height = this.canvasInitialSize;
@@ -70,11 +72,15 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _handleMove(box) {
         if (this.game.status() !== TicTacToeGameStatus.STATUS_UNFINISHED) return;
         const position = box.getAttribute("data-position");
-        const currentPlayer = this.game.next;
+        const currentPlayer = this.game.nextPlayer;
         if (this.game.move(position)) {
             if (currentPlayer === TicTacToeGamePlayers.X) {
+                this._hideElement("playerX");
+                this._showElement("playerO");
                 this._drawX(box);
             } else {
+                this._hideElement("playerO");
+                this._showElement("playerX");
                 this._drawO(box);
             }
             this._handleStatus();
@@ -90,12 +96,17 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         if (gameEndId) {
             this._showElement(gameEndId);
             this._showElement("reset-game");
+            this._hideElement("playerInfo");
             this._displayScore();
         }
     }
 
     _showElement(id) {
         document.getElementById(id).classList.remove("invisible");
+    }
+
+    _hideElement(id) {
+        document.getElementById(id).classList.add("invisible");
     }
 
     _displayScore() {
