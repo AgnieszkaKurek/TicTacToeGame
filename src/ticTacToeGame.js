@@ -8,13 +8,14 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
 
     reset() {
         this.board = new Array(9);
-        this.next = TicTacToeGamePlayers.X;
+        this.startingPlayer = this.startingPlayer === TicTacToeGamePlayers.X ? TicTacToeGamePlayers.O : TicTacToeGamePlayers.X;
+        this.nextPlayer = this.startingPlayer;
     }
 
     move(position) {
         if (this.board[position] === undefined) {
-            this.board[position] = this.next;
-            this.next = this.next === TicTacToeGamePlayers.X ? TicTacToeGamePlayers.O : TicTacToeGamePlayers.X;
+            this.board[position] = this.nextPlayer;
+            this.nextPlayer = this.nextPlayer === TicTacToeGamePlayers.X ? TicTacToeGamePlayers.O : TicTacToeGamePlayers.X;
             return true;
         }
         return false;

@@ -19,28 +19,28 @@ describe('TicTacToeGame', () => {
     });
 
     it('x should start the game', () => {
-        expect(game.next).toEqual(TicTacToeGamePlayers.X);
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.X);
     });
 
     it('first move should set x in appropriate position and change player to o', () => {
         const wasSuccessfull = game.move(0);
         expect(game.board).toEqual([TicTacToeGamePlayers.X, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual(TicTacToeGamePlayers.O);
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.O);
         expect(wasSuccessfull).toEqual(true);
     });
 
-    it('two moves should set x and o in appropriate positions and next player should be x', () => {
+    it('two moves should set x and o in appropriate positions and nextPlayer player should be x', () => {
         game.move(0); //x
         game.move(2); //o
         expect(game.board).toEqual([TicTacToeGamePlayers.X, undefined, TicTacToeGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual(TicTacToeGamePlayers.X);
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.X);
     });
-    it('if the next move is carried out in the occupied position, board and next move doesn,t changes', () => {
+    it('if the nextPlayer move is carried out in the occupied position, board and nextPlayer move doesn,t changes', () => {
         game.move(0); //x
         game.move(2); //o
         const wasSuccessfull = game.move(2); //x
         expect(game.board).toEqual([TicTacToeGamePlayers.X, undefined, TicTacToeGamePlayers.O, undefined, undefined, undefined, undefined, undefined, undefined]);
-        expect(game.next).toEqual(TicTacToeGamePlayers.X);
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.X);
         expect(wasSuccessfull).toEqual(false);
     });
     it('if x occurs in all cells of one line, x wins', () => {
@@ -88,6 +88,32 @@ describe('TicTacToeGame', () => {
         game.move(8); //x
         expect(game.board).toEqual([TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X, TicTacToeGamePlayers.X, TicTacToeGamePlayers.O, TicTacToeGamePlayers.X]);
         expect(game.status()).toEqual(TicTacToeGameStatus.STATUS_DRAW);
+    });
+
+    it('Given X starts first game when game is reseted then O starts nextPlayer game', () => {
+        game.reset();
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.O);
+    });
+
+    it('Given X starts first game when game has 2 moves and is reseted then O starts nextPlayer game', () => {
+        game.move(0);//x
+        game.move(1);//o
+        game.reset();
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.O);
+    });
+
+    it('Given X starts first game when game has 3 moves and is reseted then O starts nextPlayer game', () => {
+        game.move(0);//x
+        game.move(1);//o
+        game.move(2);//x
+        game.reset();
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.O);
+    });
+
+    it('Given X starts first game when game is reseted twice then X starts nextPlayer game', () => {
+        game.reset();
+        game.reset();
+        expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.X);
     });
 });
 
