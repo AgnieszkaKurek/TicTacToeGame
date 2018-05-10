@@ -1,12 +1,12 @@
 /*global TicTacToeGameStatus*/
 /*global TicTacToeGamePlayers*/
+/*global TicTacToeGameBoxRenderer*/
 
 class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
-    constructor(game, score) {
+    constructor(game, score, boxRenderer) {
         this.game = game;
         this.score = score;
-        this.canvasInitialSize = 150;
-        this.lineWithdth = 10;
+        this.boxRenderer = boxRenderer;
     }
 
     init() {
@@ -31,42 +31,11 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _resetRenderer() {
         this._showElement("playerInfo");
         this._interateBoxes((box) => {
-            const canvas = this._getCanvasFromBox(box);
-            canvas.width = canvas.height = this.canvasInitialSize;
+            this.boxRenderer.reset(box);
             for (const statusItems of document.getElementsByClassName("status")) {
                 statusItems.classList.add("invisible");
             }
         });
-    }
-
-    _drawX(box) {
-        const ctx = this._initDrawing(box);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(this.canvasInitialSize, this.canvasInitialSize);
-        ctx.moveTo(0, this.canvasInitialSize);
-        ctx.lineTo(this.canvasInitialSize, 0);
-        ctx.strokeStyle = '#388e3c';
-        ctx.stroke();
-    }
-
-    _drawO(box) {
-        const ctx = this._initDrawing(box);
-        ctx.arc(this.canvasInitialSize / 2, this.canvasInitialSize / 2,
-            this.canvasInitialSize / 2 - 2 * this.lineWithdth, 0, 2 * Math.PI, false);
-        ctx.strokeStyle = '#ff3399';
-        ctx.stroke();
-    }
-
-    _getCanvasFromBox(box) {
-        return box.children[0];
-    }
-
-    _initDrawing(box) {
-        const canvas = this._getCanvasFromBox(box);
-        const ctx = canvas.getContext("2d");
-        ctx.lineWidth = this.lineWithdth;
-        return ctx;
     }
 
     _handleMove(box) {
@@ -77,11 +46,11 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
             if (currentPlayer === TicTacToeGamePlayers.X) {
                 this._hideElement("playerX");
                 this._showElement("playerO");
-                this._drawX(box);
+                this.boxRenderer.drawX(box);
             } else {
                 this._hideElement("playerO");
                 this._showElement("playerX");
-                this._drawO(box);
+                this.boxRenderer.drawO(box);
             }
             this._handleStatus();
         }
