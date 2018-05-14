@@ -75,6 +75,13 @@ h2 {
     background: #2c3e52;
 }
 
+.endGame {
+    cursor: not-allowed;
+}
+.endGame:hover{
+    background: #f1f1f1;
+}
+
 .left {
     position: relative;
     float: left;
@@ -225,3 +232,4 @@ h2 {
         margin-top: 10px;
     }
 }
+
