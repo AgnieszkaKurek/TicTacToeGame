@@ -13,7 +13,6 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this._iterateBoxes((box) => {
             box.addEventListener("click", () => this._handleMove(box));
             box.addEventListener("mouseenter", () => this._handleMouseEnter(box));
-
         });
         document.getElementById("reset-game").addEventListener("click", () => {
             this.game.reset();
