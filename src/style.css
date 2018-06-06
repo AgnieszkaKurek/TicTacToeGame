@@ -75,10 +75,10 @@ h2 {
     background: #2c3e52;
 }
 
-.notMove {
+.movingDisabled {
     cursor: not-allowed;
 }
-.notMove:hover{
+.movingDisabled:hover{
     background: #f1f1f1;
 }
 
