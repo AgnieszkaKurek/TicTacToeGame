@@ -13,12 +13,16 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
     }
 
     move(position) {
-        if (this.board[position] === undefined) {
+        if (this.isPositionEmpty(position)) {
             this.board[position] = this.nextPlayer;
             this.nextPlayer = this.nextPlayer === TicTacToeGamePlayers.X ? TicTacToeGamePlayers.O : TicTacToeGamePlayers.X;
             return true;
         }
         return false;
+    }
+
+    isPositionEmpty(position) {
+        return this.board[position] === undefined;
     }
 
     status() {

@@ -75,10 +75,10 @@ h2 {
     background: #2c3e52;
 }
 
-.endGame {
+.notMove {
     cursor: not-allowed;
 }
-.endGame:hover{
+.notMove:hover{
     background: #f1f1f1;
 }
 

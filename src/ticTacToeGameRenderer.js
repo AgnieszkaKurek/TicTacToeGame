@@ -12,6 +12,8 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     init() {
         this._iterateBoxes((box) => {
             box.addEventListener("click", () => this._handleMove(box));
+            box.addEventListener("mouseenter", () => this._handleMouseOver(box));
+
         });
         document.getElementById("reset-game").addEventListener("click", () => {
             this.game.reset();
@@ -31,7 +33,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _resetRenderer() {
         this._showElement("playerInfo");
         this._iterateBoxes((box) => {
-            box.classList.remove("endGame");
+            box.classList.remove("notMove");
             this.boxRenderer.reset(box);
             for (const statusItems of document.getElementsByClassName("status")) {
                 statusItems.classList.add("invisible");
@@ -68,7 +70,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
             this._showElement("reset-game");
             this._hideElement("playerInfo");
             this._displayScore();
-            this._iterateBoxes(box => box.classList.add("endGame"));
+            this._iterateBoxes(box => box.classList.add("notMove"));
         }
     }
 
@@ -88,6 +90,13 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
 
     _dispalyValueInElement(elementId, value) {
         document.getElementById(elementId).innerHTML = value;
+    }
+
+    _handleMouseOver(box) {
+        const position = box.getAttribute("data-position");
+        if (!this.game.isPositionEmpty(position)) {
+            box.classList.add("notMove");
+        }
     }
 
 }
