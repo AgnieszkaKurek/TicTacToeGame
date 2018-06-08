@@ -33,6 +33,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this._showElement("playerInfo");
         this._iterateBoxes((box) => {
             box.classList.remove("movingDisabled");
+            box.classList.remove("highlightAsWinningBox");
             this.boxRenderer.reset(box);
             for (const statusItems of document.getElementsByClassName("status")) {
                 statusItems.classList.add("invisible");
@@ -42,9 +43,8 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
 
     _handleMove(box) {
         if (this.game.status() !== TicTacToeGameStatus.STATUS_UNFINISHED) return;
-        const position = box.getAttribute("data-position");
         const currentPlayer = this.game.nextPlayer;
-        if (this.game.move(position)) {
+        if (this.game.move(this._getBoxPosition(box))) {
             if (currentPlayer === TicTacToeGamePlayers.X) {
                 this._hideElement("playerX");
                 this._showElement("playerO");
@@ -66,6 +66,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
                 status === TicTacToeGameStatus.STATUS_DRAW ? "draw" : undefined;
         if (gameEndId) {
             this._showElement(gameEndId);
+            this._showWinningCombination();
             this._showElement("reset-game");
             this._hideElement("playerInfo");
             this._displayScore();
@@ -92,12 +93,25 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _handleMouseEnter(box) {
-        const position = box.getAttribute("data-position");
         if (!box.classList.contains("movingDisabled")); {
-            if (!this.game.isPositionEmpty(position)) {
+            if (!this.game.isPositionEmpty(this._getBoxPosition(box))) {
                 box.classList.add("movingDisabled");
             }
         }
     }
 
+    _showWinningCombination() {
+        const winningCombination = this.game.getWinningCombination();
+        if (winningCombination) {
+            this._iterateBoxes(box => {
+                if (winningCombination.isWinningPosition(this._getBoxPosition(box))) {
+                    box.classList.add("highlightAsWinningBox");
+                }
+            });
+        }
+    }
+
+    _getBoxPosition(box){
+        return parseInt(box.getAttribute("data-position"));
+    }
 }

@@ -115,5 +115,44 @@ describe('TicTacToeGame', () => {
         game.reset();
         expect(game.nextPlayer).toEqual(TicTacToeGamePlayers.X);
     });
+    
+    it('Given game, when no moves were done, then there is no winning combination', () => {
+        expect(game.getWinningCombination()).toBeUndefined();
+    });
+
+    it('Given game, when x sets first row, then first row is a winning combination', () => {
+        game.move(0); //x
+        game.move(3); //o
+        game.move(1); //x
+        game.move(4); //o
+        game.move(2); //x
+        const winningCombination = game.getWinningCombination();
+        expect(winningCombination.position1).toEqual(0);
+        expect(winningCombination.position2).toEqual(1);
+        expect(winningCombination.position3).toEqual(2);
+    });
+
+    it('Given game, when x sets first row and game is reseted, then there is no winning combination ', () => {
+        game.move(0); //x
+        game.move(3); //o
+        game.move(1); //x
+        game.move(4); //o
+        game.move(2); //x
+        game.reset();
+        expect(game.getWinningCombination()).toBeUndefined();
+    });
+
+    it('Given game, when game status is a draw, then there is no winning combination ', () => {
+        game.move(0); //x
+        game.move(2); //o
+        game.move(1); //x
+        game.move(3); //o
+        game.move(5); //x
+        game.move(4); //o
+        game.move(6); //x
+        game.move(7); //o
+        game.move(8); //x
+        expect(game.getWinningCombination()).toBeUndefined();
+    });
 });
 

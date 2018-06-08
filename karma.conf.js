@@ -6,9 +6,11 @@ module.exports = function (config) {
         'src/ticTacToeGameStatus.js',
         'src/tictTacToeGameScore.js',
         'src/ticTacToeGamePlayers.js',
+        'src/ticTacToeCombination.js',
         'src/ticTacToeGame.js',
         'tests/ticTacToeGameSpec.js',
         'tests/ticTacToeGamesScoreSpec.js',
+        'tests/ticTacToeGameCombinationSpec.js'
       ],
       client: {
         clearContext: false
