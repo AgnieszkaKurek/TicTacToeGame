@@ -142,7 +142,7 @@ describe('TicTacToeGame', () => {
         expect(game.getWinningCombination()).toBeUndefined();
     });
 
-    it('Given game, when game is draw, then there is no winning combination ', () => {
+    it('Given game, when game status is a draw, then there is no winning combination ', () => {
         game.move(0); //x
         game.move(2); //o
         game.move(1); //x

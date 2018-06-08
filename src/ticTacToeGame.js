@@ -27,6 +27,16 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
     }
 
     status() {
+        const winningCombination = this.getWinningCombination();
+        if (winningCombination) {
+            return this.board[winningCombination.position1] ===
+                TicTacToeGamePlayers.X ? TicTacToeGameStatus.STATUS_X_WINS : TicTacToeGameStatus.STATUS_O_WINS;
+        }
+        if (this.board.includes(undefined)) return TicTacToeGameStatus.STATUS_UNFINISHED;
+        return TicTacToeGameStatus.STATUS_DRAW;
+    }
+
+    getWinningCombination() {
         const possibleWinningCombinations = [
             new TicTacToeCombination(0, 1, 2),
             new TicTacToeCombination(3, 4, 5),
@@ -37,14 +47,9 @@ class TicTacToeGame {// eslint-disable-line no-unused-vars
             new TicTacToeCombination(0, 4, 8),
             new TicTacToeCombination(2, 4, 6),
         ];
-        for (const combination of possibleWinningCombinations) {
-            if (this._isWinningCombination(combination)) {
-                return this.board[combination.position1] === TicTacToeGamePlayers.X ? TicTacToeGameStatus.STATUS_X_WINS : TicTacToeGameStatus.STATUS_O_WINS;
-            }
-        }
-        if (this.board.includes(undefined)) return TicTacToeGameStatus.STATUS_UNFINISHED;
-        return TicTacToeGameStatus.STATUS_DRAW;
+        return possibleWinningCombinations.find(combination => this._isWinningCombination(combination));
     }
+
 
     _isWinningCombination(combination) {
         return this.board[combination.position1] !== undefined &&
