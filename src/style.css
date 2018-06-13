@@ -115,6 +115,13 @@ h2 {
 .highlightAsWinningBox, .highlightAsWinningBox:hover{
    background:  #ffff99;
 }
+.nextPlayerX:hover{
+    cursor: url(icons/cross.png), pointer;
+}
+
+.nextPlayerO:hover{
+    cursor: url(icons/circle.png), pointer;
+}
 
 @media (min-width: 850px) and (max-width: 979px) {
     #gameBord {

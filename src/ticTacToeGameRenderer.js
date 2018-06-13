@@ -32,11 +32,11 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _resetRenderer() {
         this._showElement("playerInfo");
         this._iterateBoxes((box) => {
-            box.classList.remove("movingDisabled");
-            box.classList.remove("highlightAsWinningBox");
+            this._removeClass(box, "movingDisabled");
+            this._removeClass(box, "highlightAsWinningBox");
             this.boxRenderer.reset(box);
             for (const statusItems of document.getElementsByClassName("status")) {
-                statusItems.classList.add("invisible");
+                this._addClass(statusItems, "invisible");
             }
         });
     }
@@ -54,6 +54,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
                 this._showElement("playerX");
                 this.boxRenderer.drawO(box);
             }
+            this._removeNextPlayerInfo(box);
             this._handleStatus();
         }
     }
@@ -70,16 +71,18 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
             this._showElement("reset-game");
             this._hideElement("playerInfo");
             this._displayScore();
-            this._iterateBoxes(box => box.classList.add("movingDisabled"));
+            this._iterateBoxes(box => this._disableBox(box));
         }
     }
 
-    _showElement(id) {
-        document.getElementById(id).classList.remove("invisible");
+    _disableBox(box) {
+        this._addClass(box, "movingDisabled");
+        this._removeNextPlayerInfo(box);
     }
 
-    _hideElement(id) {
-        document.getElementById(id).classList.add("invisible");
+    _removeNextPlayerInfo(box) {
+        this._removeClass(box, "nextPlayerX");
+        this._removeClass(box, "nextPlayerO");
     }
 
     _displayScore() {
@@ -88,14 +91,17 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this._dispalyValueInElement("numberOfDraws", this.score.numberOfDraws);
     }
 
-    _dispalyValueInElement(elementId, value) {
-        document.getElementById(elementId).innerHTML = value;
+    _isXAsNextPlayer() {
+        return this.game.nextPlayer === TicTacToeGamePlayers.X;
     }
 
     _handleMouseEnter(box) {
-        if (!box.classList.contains("movingDisabled")); {
-            if (!this.game.isPositionEmpty(this._getBoxPosition(box))) {
-                box.classList.add("movingDisabled");
+        if (!this._hasClass(box, "movingDisabled")) {
+            if (this.game.isPositionEmpty(this._getBoxPosition(box))) {
+                this._addClass(box, `nextPlayer${this._isXAsNextPlayer() ? "X" : "O"}`);
+                this._removeClass(box, `nextPlayer${this._isXAsNextPlayer() ? "O" : "X"}`);
+            } else {
+                this._addClass(box, "movingDisabled");
             }
         }
     }
@@ -105,13 +111,37 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         if (winningCombination) {
             this._iterateBoxes(box => {
                 if (winningCombination.isWinningPosition(this._getBoxPosition(box))) {
-                    box.classList.add("highlightAsWinningBox");
+                    this._addClass(box, "highlightAsWinningBox");
                 }
             });
         }
     }
 
-    _getBoxPosition(box){
+    _showElement(id) {
+        this._removeClass(document.getElementById(id), "invisible");
+    }
+
+    _hideElement(id) {
+        this._addClass(document.getElementById(id), "invisible");
+    }
+
+    _getBoxPosition(box) {
         return parseInt(box.getAttribute("data-position"));
+    }
+
+    _dispalyValueInElement(elementId, value) {
+        document.getElementById(elementId).innerHTML = value;
+    }
+
+    _removeClass(item, className) {
+        item.classList.remove(className);
+    }
+
+    _addClass(item, className) {
+        item.classList.add(className);
+    }
+
+    _hasClass(item, className) {
+        return item.classList.contains(className);
     }
 }
