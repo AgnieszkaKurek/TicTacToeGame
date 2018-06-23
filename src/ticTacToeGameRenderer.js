@@ -29,7 +29,6 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
 
     _createBoxStateAttribute(box) {
         const attr = document.createAttribute("data-box-state");
-        attr.value = this._nextPlayerLabel();
         box.setAttributeNode(attr);
     }
 
@@ -47,7 +46,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
             for (const statusItems of document.getElementsByClassName("status")) {
                 this._addClass(statusItems, "invisible");
             }
-            this._createBoxStateAttribute(box);
+            box.setAttribute("data-box-state", "");
         });
     }
 
