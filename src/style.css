@@ -75,11 +75,24 @@ h2 {
     background: #2c3e52;
 }
 
-.movingDisabled {
+[data-box-state="movingDisabled"] {
     cursor: not-allowed;
 }
-.movingDisabled:hover{
+[data-box-state="movingDisabled"]:hover{
     background: #f1f1f1;
+}
+
+[data-box-state="highlightAsWinningBox"], [data-box-state="highlightAsWinningBox"]:hover{
+    background: #ffff99;
+    cursor: not-allowed;
+}
+
+[data-box-state="playerX"]:hover{
+    cursor: url(icons/cross.png), pointer;
+}
+
+[data-box-state="playerO"]:hover{
+    cursor: url(icons/circle.png), pointer;
 }
 
 .left {
@@ -112,16 +125,6 @@ h2 {
     padding: 0;
 }
 
-.highlightAsWinningBox, .highlightAsWinningBox:hover{
-   background:  #ffff99;
-}
-.nextPlayerX:hover{
-    cursor: url(icons/cross.png), pointer;
-}
-
-.nextPlayerO:hover{
-    cursor: url(icons/circle.png), pointer;
-}
 
 @media (min-width: 850px) and (max-width: 979px) {
     #gameBord {
