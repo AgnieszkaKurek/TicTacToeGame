@@ -7,6 +7,9 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this.game = game;
         this.score = score;
         this.boxRenderer = boxRenderer;
+        this.playerXLabel = "playerX";
+        this.playerOLabel = "playerO";
+
     }
 
     init() {
@@ -19,12 +22,26 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
             this.game.reset();
             this._resetRenderer();
         });
-        this._showElement(this._nextPlayerLabel());
+        this._updateNextPlayerInfo();
         this._displayScore();
     }
 
+    _nextPlayerIsX() {
+        return this.game.nextPlayer === TicTacToeGamePlayers.X;
+    }
+
     _nextPlayerLabel() {
-        return this.game.nextPlayer === TicTacToeGamePlayers.X ? "playerX" : "playerO";
+        return this._nextPlayerIsX() ? this.playerXLabel : this.playerOLabel;
+    }
+
+    _updateNextPlayerInfo() {
+        if (this._nextPlayerIsX()) {
+            this._hideElement(this.playerOLabel);
+            this._showElement(this.playerXLabel);
+        } else {
+            this._hideElement(this.playerXLabel);
+            this._showElement(this.playerOLabel);
+        }
     }
 
     _createBoxStateAttribute(box) {
@@ -41,6 +58,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
 
     _resetRenderer() {
         this._showElement("playerInfo");
+        this._updateNextPlayerInfo();
         this._iterateBoxes((box) => {
             this.boxRenderer.reset(box);
             for (const statusItems of document.getElementsByClassName("status")) {
@@ -55,15 +73,12 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         const currentPlayer = this.game.nextPlayer;
         if (this.game.move(this._getBoxPosition(box))) {
             if (currentPlayer === TicTacToeGamePlayers.X) {
-                this._hideElement("playerX");
-                this._showElement("playerO");
                 this.boxRenderer.drawX(box);
-            } else {
-                this._hideElement("playerO");
-                this._showElement("playerX");
+            } else {        
                 this.boxRenderer.drawO(box);
             }
             this._disableBox(box);
+            this._updateNextPlayerInfo();
             this._handleStatus();
         }
     }
