@@ -15,22 +15,15 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this._iterateBoxes((box) => {
             box.addEventListener("click", () => this._handleMove(box));
             box.addEventListener("mouseenter", () => this._handleMouseEnter(box));
-            this._createBoxStateAttribute(box);
+            box.setAttributeNode(document.createAttribute("data-box-state"));
         });
-        document.getElementById("reset-game").addEventListener("click", () => {
-            this._game.reset();
-            this._resetRenderer();
-        });
+        document.getElementById("reset-game").addEventListener("click", () => this._resetRenderer());
         this._updateNextPlayerInfo();
         this._displayScore();
     }
 
     _nextPlayerIsX() {
         return this._game.nextPlayer === TicTacToeGamePlayers.X;
-    }
-
-    _nextPlayerLabel() {
-        return this._nextPlayerIsX() ? this._playerXLabel : this._playerOLabel;
     }
 
     _updateNextPlayerInfo() {
@@ -43,11 +36,6 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         }
     }
 
-    _createBoxStateAttribute(box) {
-        const attr = document.createAttribute("data-box-state");
-        box.setAttributeNode(attr);
-    }
-
     _iterateBoxes(handler) {
         const boxes = document.getElementsByClassName("box");
         for (const box of boxes) {
@@ -56,6 +44,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     }
 
     _resetRenderer() {
+        this._game.reset();
         this._showElement("playerInfo");
         this._updateNextPlayerInfo();
         this._iterateBoxes((box) => {
@@ -112,7 +101,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _handleMouseEnter(box) {
         if (this._game.status() !== TicTacToeGameStatus.STATUS_UNFINISHED) return;
         if (this._game.isPositionEmpty(this._getBoxPosition(box))) {
-            box.setAttribute("data-box-state", this._nextPlayerLabel());
+            box.setAttribute("data-box-state", this._nextPlayerIsX() ? this._playerXLabel : this._playerOLabel);
         } else {
             this._disableBox(box);
         }
