@@ -9,7 +9,6 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         this.boxRenderer = boxRenderer;
         this.playerXLabel = "playerX";
         this.playerOLabel = "playerO";
-
     }
 
     init() {
@@ -74,7 +73,7 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
         if (this.game.move(this._getBoxPosition(box))) {
             if (currentPlayer === TicTacToeGamePlayers.X) {
                 this.boxRenderer.drawX(box);
-            } else {        
+            } else {
                 this.boxRenderer.drawO(box);
             }
             this._disableBox(box);
