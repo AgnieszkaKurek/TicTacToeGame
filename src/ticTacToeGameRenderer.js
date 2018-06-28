@@ -46,6 +46,9 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _resetRenderer() {
         this._game.reset();
         this._showElement("playerInfo");
+        this._removeScoreHighlight("scorePlayerX");
+        this._removeScoreHighlight("scorePlayerO");
+        this._removeScoreHighlight("numberOfDraws");
         this._updateNextPlayerInfo();
         this._iterateBoxes((box) => {
             this._boxRenderer.reset(box);
@@ -73,11 +76,14 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
 
     _handleStatus() {
         const status = this._game.status();
-        this._score.update(status);
         let gameEndId = status === TicTacToeGameStatus.STATUS_X_WINS ? "winnerX" :
             status === TicTacToeGameStatus.STATUS_O_WINS ? "winnerO" :
                 status === TicTacToeGameStatus.STATUS_DRAW ? "draw" : undefined;
         if (gameEndId) {
+            this._score.update(status);
+            const affectedScoreItemId = status === TicTacToeGameStatus.STATUS_X_WINS ? "scorePlayerX" :
+                status === TicTacToeGameStatus.STATUS_O_WINS ? "scorePlayerO" : "numberOfDraws";
+            this._addClass(document.getElementById(affectedScoreItemId), "scoreHighlight");
             this._showElement(gameEndId);
             this._showElement("reset-game");
             this._hideElement("playerInfo");
@@ -141,4 +147,9 @@ class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
     _addClass(item, className) {
         item.classList.add(className);
     }
+
+    _removeScoreHighlight(id) {
+        this._removeClass(document.getElementById(id), "scoreHighlight");
+    }
+
 }
