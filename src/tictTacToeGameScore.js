@@ -1,6 +1,6 @@
-/*global TicTacToeGameStatus*/
+import {TicTacToeGameStatus} from './ticTacToeGameStatus';
 
-class TicTacToeGameScore { // eslint-disable-line no-unused-vars
+export class TicTacToeGameScore {
     constructor() {
         this.scorePlayerX = 0;
         this.scorePlayerO = 0;

@@ -1,7 +1,6 @@
-/*global TicTacToeGameStatus*/
-/*global TicTacToeGamePlayers*/
-/*global TicTacToeGame*/
-
+import {TicTacToeGame} from './../src/ticTacToeGame';
+import {TicTacToeGamePlayers} from './../src/ticTacToeGamePlayers';
+import {TicTacToeGameStatus} from './../src/ticTacToeGameStatus';
 
 describe('TicTacToeGame', () => {
     let game;

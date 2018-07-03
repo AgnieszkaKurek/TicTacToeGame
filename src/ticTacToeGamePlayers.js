@@ -1,4 +1,4 @@
-const TicTacToeGamePlayers = {
+export const TicTacToeGamePlayers = {
     X: Symbol("x"),
     O: Symbol("o"),
 };

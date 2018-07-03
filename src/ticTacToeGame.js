@@ -1,8 +1,8 @@
-/*global TicTacToeGameStatus*/
-/*global TicTacToeGamePlayers*/
-/*global TicTacToeCombination*/
+import {TicTacToeGameStatus} from './ticTacToeGameStatus';
+import {TicTacToeGamePlayers} from './ticTacToeGamePlayers';
+import {TicTacToeCombination} from './ticTacToeCombination';
 
-class TicTacToeGame {// eslint-disable-line no-unused-vars
+export class TicTacToeGame {
     constructor() {
         this.reset();
     }

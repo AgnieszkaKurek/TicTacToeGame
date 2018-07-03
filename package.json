@@ -2,10 +2,12 @@
   "name": "tictactoegame",
   "version": "1.0.0",
   "description": "Tic-tac-toe game, created in javascript",
-  "main": "src/index.html",
+  "private": true,
+  "main": "index.js",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js --single-run"
+    "test-single-run": "karma start karma.conf.js --single-run",
+    "build": "webpack"
   },
   "dependencies": {},
   "devDependencies": {
@@ -14,7 +16,10 @@
     "karma": "^2.0.4",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.2",
-    "karma-jasmine-html-reporter": "^1.2.0"
+    "karma-jasmine-html-reporter": "^1.2.0",
+    "karma-webpack": "^3.0.0",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
   },
   "repository": {
     "type": "git",
