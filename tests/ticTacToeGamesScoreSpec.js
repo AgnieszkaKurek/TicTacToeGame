@@ -1,5 +1,5 @@
-import TicTacToeGameScore from './../src/tictTacToeGameScore';
-import TicTacToeGameStatus from './../src/ticTacToeGameStatus';
+import {TicTacToeGameScore} from './../src/tictTacToeGameScore';
+import {TicTacToeGameStatus} from './../src/ticTacToeGameStatus';
 
 describe('TicTacToeGameScore', () => {
     let score;
