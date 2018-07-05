@@ -4,7 +4,8 @@ Tic-tac-toe game, created in javascript
 ## Prerequisites:
 Open terminal and run commands:
 * `npm install` to install dependecines
-* `npm run build` to create js bundle and start watching all related js files
+* `npm run dev` to create dev js bundle and start watching all related js files
+* `npm run prod` to create prod js bundle
 After that you may open index.html file
 
 ## Unit Test:

@@ -7,7 +7,8 @@
   "scripts": {
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
-    "build": "webpack"
+    "prod": "webpack --config webpack.prod.js",
+    "dev": "webpack --config webpack.dev.js"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"
@@ -24,7 +25,8 @@
     "karma-jasmine-html-reporter": "^1.2.0",
     "karma-webpack": "^3.0.0",
     "webpack": "^4.14.0",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "^3.0.8",
+    "webpack-merge": "^4.1.3"
   },
   "repository": {
     "type": "git",
