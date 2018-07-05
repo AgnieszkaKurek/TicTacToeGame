@@ -1,3 +1,4 @@
+import "babel-polyfill";
 import { TicTacToeGame } from './ticTacToeGame';
 import { TicTacToeGameScore } from './tictTacToeGameScore';
 import { TicTacToeGameBoxRenderer } from './ticTacToeGameBoxRenderer';
