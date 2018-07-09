@@ -1,4 +1,4 @@
-/*global TicTacToeCombination*/
+import {TicTacToeCombination} from './../src/ticTacToeCombination';
 
 describe('TicTacToeCombination', () => {
     it('Given position matching one of positions in combination, when checking if it is a winning combination, then should state that it is a winning combination', () => {

@@ -1,4 +1,4 @@
-class TicTacToeGameBoxRenderer {// eslint-disable-line no-unused-vars
+export class TicTacToeGameBoxRenderer {
     constructor() {
         this._canvasInitialSize = 150;
         this._lineWidth = 10;

@@ -1,8 +1,7 @@
-/*global TicTacToeGameStatus*/
-/*global TicTacToeGamePlayers*/
-/*global TicTacToeGameBoxRenderer*/
+import {TicTacToeGameStatus} from './ticTacToeGameStatus';
+import {TicTacToeGamePlayers} from './ticTacToeGamePlayers';
 
-class TicTacToeGameRenderer {// eslint-disable-line no-unused-vars
+export class TicTacToeGameRenderer {
     constructor(game, score, boxRenderer) {
         this._game = game;
         this._score = score;

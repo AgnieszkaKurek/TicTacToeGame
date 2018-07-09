@@ -1,4 +1,4 @@
-class TicTacToeCombination {// eslint-disable-line no-unused-vars
+export class TicTacToeCombination {
     constructor(position1, position2, position3) {
         this.position1 = position1;
         this.position2 = position2;
