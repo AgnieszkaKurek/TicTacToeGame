@@ -9,6 +9,9 @@ module.exports = function (config) {
       'tests/**/*Spec.js': ['webpack']
     },
     webpack: {
+      mode: 'none',
+      devtool: 'inline-source-map',
+      watch: true
     },
     webpackMiddleware: {
       stats: 'errors-only'
