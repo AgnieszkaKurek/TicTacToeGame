@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test-watch": "karma start karma.conf.js",
-    "test": "karma start karma.conf.js --single-run",
+    "test": "./node_modules/.bin/karma start karma.conf.js --single-run",
     "prod": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js"
   },
