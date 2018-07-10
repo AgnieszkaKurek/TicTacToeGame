@@ -9,7 +9,9 @@ Open terminal and run commands:
 After that you may open index.html file
 
 ## Unit Test:
-Open terminal and run command `npm test`
+Open terminal and run command:
+* `npm test` - to run tests once
+* `npm run test-watch` to run tests with watching files 
 
 ## Others
 

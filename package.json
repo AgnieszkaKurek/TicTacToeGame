@@ -5,8 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js --single-run",
+    "test-watch": "karma start karma.conf.js",
+    "test": "karma start karma.conf.js --single-run",
     "prod": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js"
   },
