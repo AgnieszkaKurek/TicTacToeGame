@@ -14,7 +14,7 @@ Open terminal and run command:
 * `npm run test-watch` to run tests with watching files
 
 ## CI / CD:
-* Travis pipeline: https://travis-ci.org/AgnieszkaKurek/TicTacToeGame
+* [![Build Status](https://travis-ci.org/AgnieszkaKurek/TicTacToeGame.svg?branch=master)](https://travis-ci.org/AgnieszkaKurek/TicTacToeGame)
 
 ## Others
 
