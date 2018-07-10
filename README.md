@@ -11,7 +11,10 @@ After that you may open index.html file
 ## Unit Test:
 Open terminal and run command:
 * `npm test` - to run tests once
-* `npm run test-watch` to run tests with watching files 
+* `npm run test-watch` to run tests with watching files
+
+## CI / CD:
+* Travis pipeline: https://travis-ci.org/AgnieszkaKurek/TicTacToeGame
 
 ## Others
 
