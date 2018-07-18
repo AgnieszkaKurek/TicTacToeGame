@@ -9,5 +9,16 @@ before_install:
  - sh -e /etc/init.d/xvfb start
  - sleep 3
 
+before_deploy:
+  - npm run prod
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: 2a77f578aa298c8658999cf66bcf87fee7de3268
+  keep-history: true
+  on:
+    branch: master
+
 addons:
   chrome: stable
