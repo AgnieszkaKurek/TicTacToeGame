@@ -11,11 +11,11 @@ Tic-tac-toe game, created in javascript
   * run `npm test` to run tests once
   * run `npm run test-watch` to run tests with watching files
 
-## Continuous Integration:
+## Continuous Integration
 Check travis pipeline:
 [![Build Status](https://travis-ci.org/AgnieszkaKurek/TicTacToeGame.svg?branch=master)](https://travis-ci.org/AgnieszkaKurek/TicTacToeGame)
 
-## Continuous Delivery:
+## Continuous Delivery
 Application is automaticaly deployed into https://agnieszkakurek.github.io/TicTacToeGame on every push to master by [Travis pipeline](https://travis-ci.org/AgnieszkaKurek/TicTacToeGame)
 In order to get the content of the deployed files you may:
 * run `npm run prod` locally and check dist folder
