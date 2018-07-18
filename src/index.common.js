@@ -9,5 +9,4 @@ export function ticTacToeGameCaller() {
     const boxRenderer = new TicTacToeGameBoxRenderer();
     const renderer = new TicTacToeGameRenderer(game, score, boxRenderer);
     renderer.init();
-    console.log('test');
 }
