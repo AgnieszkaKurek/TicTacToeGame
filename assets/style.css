@@ -1,13 +1,10 @@
 body {
     height: 900px;
+    padding: 2em;
     background: linear-gradient(#99CCCC, #9966ff);
     color: #fff;
     font-weight: bold;
     text-align: center;
-}
-
-h1 {
-    color: #9966CC;
 }
 
 h2 {
@@ -15,27 +12,51 @@ h2 {
 }
 
 .container {
-    position: relative;
-    padding: 0 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container > * {
+    padding: 2px;
+    flex: 1 100%;
+}
+
+.header{
+    color: #9966CC;
+}
+
+.left, .right{
+    max-width: 150px;
+}
+
+.left {
+    order: 1;
+}
+
+.right {
+    order: 3;
 }
 
 .gameArea {
-    position: relative;
-    float: left;
-    width: 100%
+    max-width: 600px;
+    margin-bottom: 10px;
+    flex: 3 0px;
+    order: 2;
+ }
+
+.footer {
+    order: 4;
 }
 
-#gameBord {
+.gameBoard {
     position: relative;
-    width: 450px;
-    height: 450px;
     border: 1px solid #dadada;
     margin: 0 auto;
     padding: 0;
-    margin-bottom: 5px;
 }
 
-#gameBord canvas {
+.gameBoard canvas {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -44,8 +65,7 @@ h2 {
 .box {
     list-style: none;
     float: left;
-    width: 150px;
-    height: 150px;
+    width: 33.333%;
     background: #f1f1f1;
     border: 1px solid #ccc;
     cursor: pointer;
@@ -56,13 +76,12 @@ h2 {
     background: #fff;
 }
 
-#reset-game {
+.reset-game {
     height: 30px;
     width: 130px;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    font-size: 15px;
-    text-align: center;
+    font-size: 10px;
     border: none;
     background: #ff99cc;
     color: #fff;
@@ -71,8 +90,25 @@ h2 {
     margin-top: 5px;
 }
 
-#reset-game:hover {
+.reset-game:hover {
     background: #2c3e52;
+}
+
+.invisible{
+    display: none;
+}
+
+.status{
+    width: 5%;
+    color: #ed4e6e;
+    font-weight: bold;
+    font-size:30px;
+}
+
+.scoreHighlight{
+    color: #ff6600;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 [data-box-state="movingDisabled"] {
@@ -93,110 +129,4 @@ h2 {
 
 [data-box-state="playerO"]:hover{
     cursor: url(icons/circle.png), pointer;
-}
-
-.left {
-    position: relative;
-    float: left;
-    width: 230px;
-    right: 250px;
-    margin-left: -100%;
-    padding: 0 10px;
-}
-
-.right {
-    float: left;
-    width: 230px;
-    margin-right: -250px;
-    padding: 0 10px;
-}
-
-.invisible{
-    display: none;
-}
-
-.status{
-    width: 450px;
-    height: 50px;
-    color: #ed4e6e;
-    font-weight: bold;
-    font-size:50px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.scoreHighlight{
-    color: #ff6600;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-@media (min-width: 850px) and (max-width: 979px) {
-    #gameBord {
-        height: 300px;
-        width: 300px;
-    }
-    .box {
-        height: 100px;
-        width: 100px;
-    }
-  .status {
-        width: 200px;
-        height: 25px;
-        text-align: center;
-        font-size: 25px;
-    }
-    .left {
-        width: 130px;
-        right: 150px;
-        margin-left: -100%;
-        padding: 0 10px;
-    }
-    .right {
-       width: 130px;
-       left: 150px;;
-       margin-right: -50%;
-    }
-}
-
-@media (max-width: 849px) {
-    .container {
-        position: static;
-        padding: 0px;
-    }
-    h1 {
-        font-size: 16px;
-    }
-    h2 {
-        font-size: 14px;
-    }
-    .player {
-        font-size: 12px;
-    }
-    #gameBord {
-        height: 300px;
-        width: 300px;
-    }
-    
-    .gameArea {
-        position: static;
-        float: none;
-    }
-    .left {
-        position: static;
-        margin: auto;
-        float: none;
-    }
-    .right { 
-        position: static;
-        margin: auto;
-        float: none; 
-    }
-}
-
-@media (max-width: 480px) {
-    .box {
-        height: 100px;
-        width: 100px;
-    }
 }

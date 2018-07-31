@@ -11,10 +11,22 @@
 
 <body>
     <div class="container">
-        <h1>Tic Tac Toe</h1>
+        <header class="header">
+            <h1>Tic Tac Toe</h1>
+        </header>
+
+        <aside class="left">
+            <div id="playerInfo">
+                <h2>Who's Turn</h2>
+                <div class="player">
+                    <span class="invisible" id="playerX">PlayerX</span>
+                    <span class="invisible" id="playerO">PlayerO</span>
+                </div>
+            </div>
+        </aside>
 
         <div class="gameArea">
-            <ul id="gameBord">
+            <ul id="gameBord" class="gameBoard">
                 <!-- first row -->
                 <li class="box" data-position="0">
                     <canvas width="150" height="150" />
@@ -46,7 +58,7 @@
                     <canvas width="150" height="150" />
                 </li>
             </ul>
-            <button id="reset-game" class="status invisible">Reset Game</button>
+            <button id="reset-game" class="reset-game status invisible">Reset Game</button>
             <div>
                 <span class="status invisible" id="winnerX">Winer is X</span>
                 <span class="status invisible" id="winnerO">Winer is O</span>
@@ -54,14 +66,7 @@
             </div>
         </div>
 
-        <div class="left" id="playerInfo">
-            <h2>Who's Turn</h2>
-            <div class="player">
-                <span class="invisible" id="playerX">PlayerX</span>
-                <span class="invisible" id="playerO">PlayerO</span>
-            </div>
-        </div>
-        <div class="right">
+        <aside class="right">
             <h2>Punctation</h2>
             <div class="player">
                 <div>Score PlayerX:
@@ -74,7 +79,8 @@
                     <span id="numberOfDraws"></span>
                 </div>
             </div>
-        </div>
+        </aside>
+        <footer class="footer">made by Aga</footer>
     </div>
     <script src="./scripts/main.js"></script>
 </body>
