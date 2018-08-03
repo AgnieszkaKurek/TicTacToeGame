@@ -17,10 +17,11 @@ h2 {
     flex-wrap: wrap;
     justify-content: center;
 }
-
+  
 .header{
     color: #9966CC;
     width: 100%;
+    font-size: 12px;
 }
 
 .left {
@@ -45,6 +46,7 @@ h2 {
     color: #9977ff;
     text-shadow: black 0.1em 0.1em 0.2em;
     padding-top: 1px;
+    font-size: 10px;
 }
 
 .gameBoard {
@@ -72,7 +74,7 @@ h2 {
 }
 
 .reset-game {
-    height: 50px;
+    height: 30px;
     width: 150px;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -121,31 +123,33 @@ h2 {
 [data-box-state="playerO"]:hover{
     cursor: url(icons/circle.png), pointer;
 }
-@media (min-width: 850px) and (max-width: 940px) {
-    .aside{
-        flex:1 auto;
-    } 
+
+@media (max-width: 793px) {
     .punctation{
-        color:#990099;
-    } 
-}
-@media (max-width: 849px) {
+        color:#990099;}
+
     .reset-game{
         font-size: 2em;
         margin-top: 1em;
     }
     .status {
-        font-size: 1em;
+        font-size: 0.75em;
     }
     .winnerStatus{
         font-size: 2em;
-        padding-top: 1em;
     }
     .punctation{
         font-size: 1.5em;
         color:#800080;
-    } 
-}  
+    }
+    .right{
+        line-height: 0.75;
+    }
+    .left{
+        line-height: 0.75;
+    }
+}
+
 @media (max-width: 480px) {
     .player{
         font-size: 1em;
@@ -153,5 +157,9 @@ h2 {
     .punctation{
         color:#660033;
     }
+}
 
+@media all and (min-width: 794px){
+    .gameArea {
+        flex: 2 0px; }
 }
