@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test-watch": "karma start karma.conf.js",
+    "test-watch": "./node_modules/.bin/karma start karma.conf.js",
     "test": "./node_modules/.bin/karma start karma.conf.js --single-run",
     "prod": "webpack --config webpack.prod.js",
     "dev": "webpack --config webpack.dev.js"
