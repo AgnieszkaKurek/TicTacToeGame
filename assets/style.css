@@ -1,13 +1,11 @@
-body {
-    height: 900px;
+html{
+    min-height:100%;
     background: linear-gradient(#99CCCC, #9966ff);
+}
+body {
     color: #fff;
     font-weight: bold;
     text-align: center;
-}
-
-h1 {
-    color: #9966CC;
 }
 
 h2 {
@@ -15,40 +13,59 @@ h2 {
 }
 
 .container {
-    position: relative;
-    padding: 0 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+  
+.header{
+    color: #9966CC;
+    width: 100%;
+    font-size: 12px;
+}
+
+.left {
+    order: 1;
+    width: 150px;
 }
 
 .gameArea {
-    position: relative;
-    float: left;
-    width: 100%
+    order: 2;
+    max-width: 600px;
+    margin: 5px;
+ }
+
+.right {
+    order: 3;
+    width: 150px;
 }
 
-#gameBord {
-    position: relative;
-    width: 450px;
-    height: 450px;
+.footer {
+    order: 4;
+    width: 100%;
+    color: #9977ff;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    padding-top: 1px;
+    font-size: 10px;
+}
+
+.gameBoard {
     border: 1px solid #dadada;
     margin: 0 auto;
     padding: 0;
-    margin-bottom: 5px;
 }
 
-#gameBord canvas {
+.gameBoard canvas {
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
 }
 
 .box {
     list-style: none;
     float: left;
-    width: 150px;
-    height: 150px;
+    width: 33.333%;
     background: #f1f1f1;
     border: 1px solid #ccc;
-    cursor: pointer;
     box-sizing: border-box;
 }
 
@@ -56,13 +73,11 @@ h2 {
     background: #fff;
 }
 
-#reset-game {
+.reset-game {
     height: 30px;
-    width: 130px;
+    width: 150px;
     border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    font-size: 15px;
-    text-align: center;
     border: none;
     background: #ff99cc;
     color: #fff;
@@ -71,8 +86,22 @@ h2 {
     margin-top: 5px;
 }
 
-#reset-game:hover {
+.reset-game:hover {
     background: #2c3e52;
+}
+
+.invisible{
+    display: none;
+}
+
+.winnerStatus{
+    color: #ed4e6e;
+    font-size: 3em;
+}
+
+.scoreHighlight{
+    color: #ff6600;
+    font-size: 1.5em;
 }
 
 [data-box-state="movingDisabled"] {
@@ -82,7 +111,8 @@ h2 {
     background: #f1f1f1;
 }
 
-[data-box-state="highlightAsWinningBox"], [data-box-state="highlightAsWinningBox"]:hover{
+[data-box-state="highlightAsWinningBox"],
+[data-box-state="highlightAsWinningBox"]:hover{
     background: #ffff99;
     cursor: not-allowed;
 }
@@ -95,160 +125,43 @@ h2 {
     cursor: url(icons/circle.png), pointer;
 }
 
-.left {
-    position: relative;
-    float: left;
-    width: 230px;
-    right: 250px;
-    margin-left: -100%;
-    padding: 0 10px;
-}
-
-.right {
-    float: left;
-    width: 230px;
-    margin-right: -250px;
-    padding: 0 10px;
-}
-
-.invisible{
-    display: none;
-}
-
-.status{
-    width: 450px;
-    height: 50px;
-    color: #ed4e6e;
-    font-weight: bold;
-    font-size:50px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.scoreHighlight{
-    color: #ff6600;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-@media (min-width: 850px) and (max-width: 979px) {
-    #gameBord {
-        height: 300px;
-        width: 300px;
+@media (max-width: 793px) {
+    .punctation{
+        color:#990099;
     }
-    .box {
-        height: 100px;
-        width: 100px;
+    .reset-game{
+        font-size: 2em;
+        margin-top: 1em;
     }
     .status {
-        width: 200px;
-        height: 25px;
-        text-align: center;
-        font-size: 25px;
+        font-size: 0.75em;
     }
-    .left {
-        width: 130px;
-        right: 150px;
-        margin-left: -100%;
-        padding: 0 10px;
+    .winnerStatus{
+        font-size: 2em;
     }
-    .right {
-       width: 130px;
-       left: 150px;;
-       margin-right: -50%;
+    .punctation{
+        font-size: 1.5em;
+        color:#800080;
     }
-}
-
-@media (max-width: 849px) {
-    .container {
-        position: static;
-        padding: 0px;
+    .right{
+        line-height: 0.75;
     }
-    h1 {
-        font-size: 16px;
-    }
-    h2 {
-        font-size: 14px;
-    }
-    .gameArea {
-        position: static;
-        float: none;
-    }
-    .player {
-        font-size: 12px;
-    }
-    #gameBord {
-        height: 300px;
-        width: 300px;
-    }
-    .box {
-        height: 100px;
-        width: 100px;
-    }
-    #reset-game {
-        height: 20px;
-        width: 120px;
-        font-size: 12px;
-    }
-    .left {
-        width: 150px;
-        position: static;
-        margin: auto;
-        float: none;
-        text-align: center;
-    }
-    .right {
-        width: 150px;
-        position: static;
-        margin: auto;
-        float: none;
-        text-align: center;
-    }
-    .status{
-      width: 200px;
-      text-align: center;
-      font-size: 20px;
-      margin-top: 15px;
+    .left{
+        line-height: 0.75;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        height: 600px;
+    .player{
+        font-size: 1em;
     }
-    h1 {
-        font-size: small;
-    }
-    h2 {
-        font-size: smaller;
-    }
-    #gameBord {
-        height: 150px;
-        width: 150px;
-    }
-    .box {
-        height: 50px;
-        width: 50px;
-    }
-    #reset-game {
-        height: 15px;
-        width: 75px;
-        font-size: 10px;
-    }
-    .player {
-        font-size: x-small;
-    }
-    .left{
-        width: 100px;
-    }
-    .right {
-        width: 100px;
-    }
-    .status {
-        font-size: 15px;
-        width: 100px;
-        position: static;
-        margin-top: 10px;
+    .punctation{
+        color:#660033;
     }
 }
 
+@media all and (min-width: 794px){
+    .gameArea {
+        flex: 2 0px;
+    }
+}
