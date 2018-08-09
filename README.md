@@ -25,3 +25,5 @@ In order to get the content of the deployed files you may:
 
 If you use Visual Studio Code, it is advised to install the following extensions:
 * https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+
+In a separate branch called `feature/34-addJqueryClient` there is a jquery version of this game. It produces heavier js output file, so it is not merged.
