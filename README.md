@@ -1,5 +1,5 @@
 # TicTacToeGame
-Tic-tac-toe game, created in javascript.
+Tic-tac-toe game, created in javascript
 
 ## Development
 * Prerequisites:
